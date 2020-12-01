@@ -1,31 +1,30 @@
 <?php
 /**
- * @package dompdf
  * @link    http://dompdf.github.com/
+ *
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
+
 namespace Sfneal\Dompdf\FrameReflower;
 
 use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\Helpers;
 use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
 use Sfneal\Dompdf\FrameDecorator\Image as ImageFrameDecorator;
+use Sfneal\Dompdf\Helpers;
 
 /**
- * Image reflower class
- *
- * @package dompdf
+ * Image reflower class.
  */
 class Image extends AbstractFrameReflower
 {
-
     /**
      * Image constructor.
+     *
      * @param ImageFrameDecorator $frame
      */
-    function __construct(ImageFrameDecorator $frame)
+    public function __construct(ImageFrameDecorator $frame)
     {
         parent::__construct($frame);
     }
@@ -33,7 +32,7 @@ class Image extends AbstractFrameReflower
     /**
      * @param BlockFrameDecorator|null $block
      */
-    function reflow(BlockFrameDecorator $block = null)
+    public function reflow(BlockFrameDecorator $block = null)
     {
         $this->_frame->position();
 
@@ -56,22 +55,22 @@ class Image extends AbstractFrameReflower
     /**
      * @return array
      */
-    function get_min_max_width()
+    public function get_min_max_width()
     {
         $frame = $this->_frame;
 
         if ($this->get_dompdf()->getOptions()->getDebugPng()) {
             // Determine the image's size. Time consuming. Only when really needed?
             list($img_width, $img_height) = Helpers::dompdf_getimagesize($frame->get_image_url(), $this->get_dompdf()->getHttpContext());
-            print "get_min_max_width() " .
-                $frame->get_style()->width . ' ' .
-                $frame->get_style()->height . ';' .
-                $frame->get_parent()->get_style()->width . " " .
-                $frame->get_parent()->get_style()->height . ";" .
-                $frame->get_parent()->get_parent()->get_style()->width . ' ' .
-                $frame->get_parent()->get_parent()->get_style()->height . ';' .
-                $img_width . ' ' .
-                $img_height . '|';
+            echo 'get_min_max_width() '.
+                $frame->get_style()->width.' '.
+                $frame->get_style()->height.';'.
+                $frame->get_parent()->get_style()->width.' '.
+                $frame->get_parent()->get_style()->height.';'.
+                $frame->get_parent()->get_parent()->get_style()->width.' '.
+                $frame->get_parent()->get_parent()->get_style()->height.';'.
+                $img_width.' '.
+                $img_height.'|';
         }
 
         $style = $frame->get_style();
@@ -97,8 +96,8 @@ class Image extends AbstractFrameReflower
             // See also ListBulletImage::__construct
             if ($width === 'auto' && $height === 'auto') {
                 $dpi = $frame->get_dompdf()->getOptions()->getDpi();
-                $width = (float)($img_width * 72) / $dpi;
-                $height = (float)($img_height * 72) / $dpi;
+                $width = (float) ($img_width * 72) / $dpi;
+                $height = (float) ($img_height * 72) / $dpi;
                 $width_forced = false;
                 $height_forced = false;
             } elseif ($height === 'auto') {
@@ -111,12 +110,11 @@ class Image extends AbstractFrameReflower
         }
 
         // Handle min/max width/height
-        if ($style->min_width !== "none" ||
-            $style->max_width !== "none" ||
-            $style->min_height !== "none" ||
-            $style->max_height !== "none"
+        if ($style->min_width !== 'none' ||
+            $style->max_width !== 'none' ||
+            $style->min_height !== 'none' ||
+            $style->max_height !== 'none'
         ) {
-
             list( /*$x*/, /*$y*/, $w, $h) = $frame->get_containing_block();
 
             $min_width = $style->length_in_pt($style->min_width, $w);
@@ -124,7 +122,7 @@ class Image extends AbstractFrameReflower
             $min_height = $style->length_in_pt($style->min_height, $h);
             $max_height = $style->length_in_pt($style->max_height, $h);
 
-            if ($max_width !== "none" && $width > $max_width) {
+            if ($max_width !== 'none' && $width > $max_width) {
                 if (!$height_forced) {
                     $height *= $max_width / $width;
                 }
@@ -132,7 +130,7 @@ class Image extends AbstractFrameReflower
                 $width = $max_width;
             }
 
-            if ($min_width !== "none" && $width < $min_width) {
+            if ($min_width !== 'none' && $width < $min_width) {
                 if (!$height_forced) {
                     $height *= $min_width / $width;
                 }
@@ -140,7 +138,7 @@ class Image extends AbstractFrameReflower
                 $width = $min_width;
             }
 
-            if ($max_height !== "none" && $height > $max_height) {
+            if ($max_height !== 'none' && $height > $max_height) {
                 if (!$width_forced) {
                     $width *= $max_height / $height;
                 }
@@ -148,7 +146,7 @@ class Image extends AbstractFrameReflower
                 $height = $max_height;
             }
 
-            if ($min_height !== "none" && $height < $min_height) {
+            if ($min_height !== 'none' && $height < $min_height) {
                 if (!$width_forced) {
                     $width *= $min_height / $height;
                 }
@@ -158,18 +156,18 @@ class Image extends AbstractFrameReflower
         }
 
         if ($this->get_dompdf()->getOptions()->getDebugPng()) {
-            print $width . ' ' . $height . ';';
+            echo $width.' '.$height.';';
         }
 
-        $style->width = $width . "pt";
-        $style->height = $height . "pt";
+        $style->width = $width.'pt';
+        $style->height = $height.'pt';
 
-        $style->min_width = "none";
-        $style->max_width = "none";
-        $style->min_height = "none";
-        $style->max_height = "none";
+        $style->min_width = 'none';
+        $style->max_width = 'none';
+        $style->min_height = 'none';
+        $style->max_height = 'none';
 
-        return [$width, $width, "min" => $width, "max" => $width];
+        return [$width, $width, 'min' => $width, 'max' => $width];
     }
 
     private function get_size(Frame $f, string $type)

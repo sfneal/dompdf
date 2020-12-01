@@ -1,7 +1,7 @@
 <?php
+
 namespace Sfneal\Dompdf\Tests;
 
-use Sfneal\Dompdf\Tests\TestCase;
 use Sfneal\Dompdf\Autoloader;
 
 class AutoloaderTest extends TestCase

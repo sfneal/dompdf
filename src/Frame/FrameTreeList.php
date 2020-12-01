@@ -1,14 +1,12 @@
 <?php
+
 namespace Sfneal\Dompdf\Frame;
 
 use IteratorAggregate;
 use Sfneal\Dompdf\Frame;
 
 /**
- * Pre-order IteratorAggregate
- *
- * @access private
- * @package dompdf
+ * Pre-order IteratorAggregate.
  */
 class FrameTreeList implements IteratorAggregate
 {
