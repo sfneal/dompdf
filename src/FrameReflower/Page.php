@@ -8,6 +8,7 @@
  */
 namespace Sfneal\Dompdf\FrameReflower;
 
+use Sfneal\Dompdf\Canvas;
 use Sfneal\Dompdf\Frame;
 use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
 use Sfneal\Dompdf\FrameDecorator\Page as PageFrameDecorator;
@@ -30,7 +31,7 @@ class Page extends AbstractFrameReflower
     /**
      * Cache of the canvas
      *
-     * @var \Dompdf\Canvas
+     * @var Canvas
      */
     private $_canvas;
 
