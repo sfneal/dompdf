@@ -216,8 +216,8 @@ class Factory
             $reflower = "Image";
         }
 
-        $decorator  = "Sfneal\\DompdfFrameDecorator\\$decorator";
-        $reflower   = "Sfneal\\DompdfFrameReflower\\$reflower";
+        $decorator  = "Sfneal\\Dompdf\\FrameDecorator\\$decorator";
+        $reflower   = "Sfneal\\Dompdf\\FrameReflower\\$reflower";
 
         /** @var AbstractFrameDecorator $deco */
         $deco = new $decorator($frame, $dompdf);

@@ -12,7 +12,7 @@ namespace Sfneal\Dompdf;
 /**
  * Main rendering interface
  *
- * Currently {@link Dompdf\Adapter\CPDF}, {@link Dompdf\Adapter\PDFLib}, and {@link Dompdf\Adapter\GD}
+ * Currently {@link Sfneal\Dompdf\Adapter\CPDF}, {@link Sfneal\Dompdf\Adapter\PDFLib}, and {@link Sfneal\Dompdf\Adapter\GD}
  * implement this interface.
  *
  * Implementations should measure x and y increasing to the left and down,
@@ -24,7 +24,7 @@ namespace Sfneal\Dompdf;
  */
 interface Canvas
 {
-    function __construct($paper = "letter", $orientation = "portrait", Dompdf $dompdf);
+    function __construct($paper = "letter", $orientation = "portrait", Dompdf $dompdf = null);
 
     /**
      * @return Dompdf

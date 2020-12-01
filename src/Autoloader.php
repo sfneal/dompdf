@@ -8,7 +8,7 @@ namespace Sfneal\Dompdf;
  */
 class Autoloader
 {
-    const PREFIX = 'Dompdf';
+    const PREFIX = 'Sfneal\Dompdf';
 
     /**
      * Register the autoloader
@@ -25,7 +25,7 @@ class Autoloader
      */
     public static function autoload($class)
     {
-        if ($class === 'Dompdf\Cpdf') {
+        if ($class === 'Sfneal\Dompdf\Cpdf') {
             require_once __DIR__ . "/../lib/Cpdf.php";
             return;
         }

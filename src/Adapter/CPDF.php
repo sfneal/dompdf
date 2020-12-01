@@ -178,9 +178,9 @@ class CPDF implements Canvas
      *
      * @param mixed $paper The size of paper to use in this PDF ({@link CPDF::$PAPER_SIZES})
      * @param string $orientation The orientation of the document (either 'landscape' or 'portrait')
-     * @param Dompdf $dompdf The Dompdf instance
+     * @param Dompdf|null $dompdf The Dompdf instance
      */
-    public function __construct($paper = "letter", $orientation = "portrait", Dompdf $dompdf)
+    public function __construct($paper = "letter", $orientation = "portrait", Dompdf $dompdf = null)
     {
         if (is_array($paper)) {
             $size = $paper;
@@ -196,7 +196,7 @@ class CPDF implements Canvas
 
         $this->_dompdf = $dompdf;
 
-        $this->_pdf = new \Dompdf\Cpdf(
+        $this->_pdf = new \Sfneal\Dompdf\Cpdf(
             $size,
             true,
             $dompdf->getOptions()->getFontCache(),
@@ -255,7 +255,7 @@ class CPDF implements Canvas
     /**
      * Returns the Cpdf instance
      *
-     * @return \Dompdf\Cpdf
+     * @return CPDF|\Sfneal\Dompdf\Cpdf
      */
     public function get_cpdf()
     {

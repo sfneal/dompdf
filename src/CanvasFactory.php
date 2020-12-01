@@ -26,9 +26,9 @@ class CanvasFactory
 
     /**
      * @param Dompdf $dompdf
-     * @param string|array $paper
-     * @param string $orientation
-     * @param string $class
+     * @param string|array|null $paper
+     * @param string|null $orientation
+     * @param string|null $class
      *
      * @return Canvas
      */
@@ -42,14 +42,14 @@ class CanvasFactory
             if (($backend === "auto" || $backend === "pdflib") &&
                 class_exists("PDFLib", false)
             ) {
-                $class = "Sfneal\\DompdfAdapter\\PDFLib";
+                $class = "Sfneal\\Dompdf\\Adapter\\PDFLib";
             }
 
             else {
                 if ($backend === "gd" && extension_loaded('gd')) {
-                    $class = "Sfneal\\DompdfAdapter\\GD";
+                    $class = "Sfneal\\Dompdf\\Adapter\\GD";
                 } else {
-                    $class = "Sfneal\\DompdfAdapter\\CPDF";
+                    $class = "Sfneal\\Dompdf\\Adapter\\CPDF";
                 }
             }
         }

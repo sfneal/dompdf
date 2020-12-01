@@ -5538,12 +5538,12 @@ EOT;
      * @param float $y Y position
      * @param float $w Width
      * @param float $h Height
-     * @param resource $img A GD resource
+     * @param resource|null $img A GD resource
      * @param bool $is_mask true if the image is a mask
      * @param bool $mask true if the image is masked
      * @throws Exception
      */
-    function addImagePng($file, $x, $y, $w = 0.0, $h = 0.0, &$img, $is_mask = false, $mask = null)
+    function addImagePng($file, $x, $y, $w = 0.0, $h = 0.0, $img = null, $is_mask = false, $mask = null)
     {
         if (!function_exists("imagepng")) {
             throw new \Exception("The PHP GD extension is required, but is not installed.");
@@ -5889,7 +5889,7 @@ EOT;
      * @param bool $is_mask
      * @param null $mask
      */
-    function addPngFromBuf($file, $x, $y, $w = 0.0, $h = 0.0, &$data, $is_mask = false, $mask = null)
+    function addPngFromBuf($file, $x, $y, $w = 0.0, $h = 0.0, &$data = null, $is_mask = false, $mask = null)
     {
         if (isset($this->imagelist[$file])) {
             $data = null;
@@ -6239,10 +6239,10 @@ EOT;
         $y,
         $w = 0,
         $h = 0,
-        $imageWidth,
-        $imageHeight,
+        $imageWidth = null,
+        $imageHeight = null,
         $channels = 3,
-        $imgname
+        $imgname = null
     ) {
         if ($this->image_iscached($imgname)) {
             $label = $this->imagelist[$imgname]['label'];
