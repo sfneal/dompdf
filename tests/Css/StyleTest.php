@@ -2,14 +2,13 @@
 
 namespace Sfneal\Dompdf\Tests\Css;
 
-use Sfneal\Dompdf\Dompdf;
 use Sfneal\Dompdf\Css\Style;
 use Sfneal\Dompdf\Css\Stylesheet;
+use Sfneal\Dompdf\Dompdf;
 use Sfneal\Dompdf\Tests\TestCase;
 
 class StyleTest extends TestCase
 {
-
     public function testLengthInPt()
     {
         $dompdf = new Dompdf();
@@ -32,5 +31,4 @@ class StyleTest extends TestCase
         $length = $s->length_in_pt('100%');
         $this->assertEquals(12, $length);
     }
-
 }

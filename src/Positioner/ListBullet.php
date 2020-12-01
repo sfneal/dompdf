@@ -1,7 +1,7 @@
 <?php
 /**
- * @package dompdf
  * @link    http://dompdf.github.com/
+ *
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @author  Helmut Tischer <htischer@weihenstephan.org>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
@@ -12,17 +12,14 @@ namespace Sfneal\Dompdf\Positioner;
 use Sfneal\Dompdf\FrameDecorator\AbstractFrameDecorator;
 
 /**
- * Positions list bullets
- *
- * @package dompdf
+ * Positions list bullets.
  */
 class ListBullet extends AbstractPositioner
 {
-
     /**
      * @param AbstractFrameDecorator $frame
      */
-    function position(AbstractFrameDecorator $frame)
+    public function position(AbstractFrameDecorator $frame)
     {
 
         // Bullets & friends are positioned an absolute distance to the left of
@@ -31,7 +28,7 @@ class ListBullet extends AbstractPositioner
 
         // Note: this differs from most frames in that we must position
         // ourselves after determining our width
-        $x = $cb["x"] - $frame->get_width();
+        $x = $cb['x'] - $frame->get_width();
 
         $p = $frame->find_block_parent();
 
