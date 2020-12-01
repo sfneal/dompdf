@@ -279,7 +279,7 @@ class Factory
     protected static function getPositionerInstance($type)
     {
         if (!isset(self::$_positioners[$type])) {
-            $class = '\\Sfneal\\DompdfPositioner\\'.$type;
+            $class = '\\Sfneal\\Dompdf\\Positioner\\'.$type;
             self::$_positioners[$type] = new $class();
         }
         return self::$_positioners[$type];
