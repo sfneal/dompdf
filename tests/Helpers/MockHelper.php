@@ -2,15 +2,16 @@
 
 namespace Sfneal\Dompdf\Tests\Helpers;
 
+use Mockery\MockInterface;
 use Sfneal\Dompdf\Css\Style;
 use Sfneal\Dompdf\Css\Stylesheet;
 use Sfneal\Dompdf\Dompdf;
-use Mockery\MockInterface;
 
 class MockHelper
 {
     /**
      * @param $properties
+     *
      * @return MockInterface | Style
      */
     public static function getStyleMock($properties)
