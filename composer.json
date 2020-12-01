@@ -20,7 +20,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Sfneal\\Dompdf": "src/"
+            "Sfneal\\Dompdf\\": "src/"
         },
         "classmap": [
             "lib/"
