@@ -49,6 +49,14 @@
         "ext-gmagick": "Improves image processing performance",
         "ext-zlib": "Needed for pdf stream compression"
     },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "update-test": "composer --prefer-stable update && composer test && composer update --prefer-lowest && composer test && composer update"
+    },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "branch-alias": {
             "dev-develop": "0.7-dev"
