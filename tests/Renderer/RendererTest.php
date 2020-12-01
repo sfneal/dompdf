@@ -1,10 +1,10 @@
 <?php
 
-namespace Dompdf\Tests\Renderer;
+namespace Sfneal\Dompdf\Tests\Renderer;
 
-use Dompdf\Dompdf;
-use Dompdf\Renderer;
-use Dompdf\Tests\TestCase;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Renderer;
+use Sfneal\Dompdf\Tests\TestCase;
 
 class RendererTest extends TestCase
 {

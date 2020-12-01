@@ -6,9 +6,9 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Dompdf\Positioner;
+namespace Sfneal\Dompdf\Positioner;
 
-use Dompdf\FrameDecorator\AbstractFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\AbstractFrameDecorator;
 
 /**
  * Positions table rows

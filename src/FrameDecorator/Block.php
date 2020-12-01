@@ -5,11 +5,11 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameDecorator;
+namespace Sfneal\Dompdf\FrameDecorator;
 
-use Dompdf\Dompdf;
-use Dompdf\Frame;
-use Dompdf\LineBox;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\LineBox;
 
 /**
  * Decorates frames for block layout

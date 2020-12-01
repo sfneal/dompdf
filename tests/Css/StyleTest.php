@@ -1,11 +1,11 @@
 <?php
 
-namespace Dompdf\Tests\Css;
+namespace Sfneal\Dompdf\Tests\Css;
 
-use Dompdf\Dompdf;
-use Dompdf\Css\Style;
-use Dompdf\Css\Stylesheet;
-use Dompdf\Tests\TestCase;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Css\Style;
+use Sfneal\Dompdf\Css\Stylesheet;
+use Sfneal\Dompdf\Tests\TestCase;
 
 class StyleTest extends TestCase
 {

@@ -6,10 +6,10 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\Renderer;
+namespace Sfneal\Dompdf\Renderer;
 
-use Dompdf\Frame;
-use Dompdf\Image\Cache;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\Image\Cache;
 
 /**
  * Image renderer

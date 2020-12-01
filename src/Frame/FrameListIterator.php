@@ -1,8 +1,8 @@
 <?php
-namespace Dompdf\Frame;
+namespace Sfneal\Dompdf\Frame;
 
 use Iterator;
-use Dompdf\Frame;
+use Sfneal\Dompdf\Frame;
 
 /**
  * Linked-list Iterator

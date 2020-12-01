@@ -1,5 +1,5 @@
 <?php
-namespace Dompdf;
+namespace Sfneal\Dompdf;
 
 class Options
 {
@@ -55,7 +55,7 @@ class Options
      * This setting may increase the risk of system exploit. Do not change
      * this settings without understanding the consequences. Additional
      * documentation is available on the dompdf wiki at:
-     * https://github.com/dompdf/dompdf/wiki
+     * https://github.com/sfneal/dompdf/wiki
      *
      * @var string
      */
@@ -153,7 +153,7 @@ class Options
      * This setting may increase the risk of system exploit. Do not change
      * this settings without understanding the consequences. Additional
      * documentation is available on the dompdf wiki at:
-     * https://github.com/dompdf/dompdf/wiki
+     * https://github.com/sfneal/dompdf/wiki
      *
      * @var bool
      */
@@ -175,7 +175,7 @@ class Options
      * This setting may increase the risk of system exploit. Do not change
      * this settings without understanding the consequences. Additional
      * documentation is available on the dompdf wiki at:
-     * https://github.com/dompdf/dompdf/wiki
+     * https://github.com/sfneal/dompdf/wiki
      *
      * @var bool
      */

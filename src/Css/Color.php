@@ -8,9 +8,9 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Dompdf\Css;
+namespace Sfneal\Dompdf\Css;
 
-use Dompdf\Helpers;
+use Sfneal\Dompdf\Helpers;
 
 class Color
 {

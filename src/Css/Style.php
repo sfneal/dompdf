@@ -8,13 +8,13 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Dompdf\Css;
+namespace Sfneal\Dompdf\Css;
 
-use Dompdf\Adapter\CPDF;
-use Dompdf\Exception;
-use Dompdf\FontMetrics;
-use Dompdf\Frame;
-use Dompdf\Helpers;
+use Sfneal\Dompdf\Adapter\CPDF;
+use Sfneal\Dompdf\Exception;
+use Sfneal\Dompdf\FontMetrics;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\Helpers;
 
 /**
  * Represents CSS properties.
@@ -638,7 +638,7 @@ class Style
 
             if (($i = mb_stripos($l, "rem")) !== false) {
                 if ($this->_stylesheet->get_dompdf()->getTree()->get_root()->get_style() === null) {
-                    // Interpreting it as "em", see https://github.com/dompdf/dompdf/issues/1406
+                    // Interpreting it as "em", see https://github.com/sfneal/dompdf/issues/1406
                     $ret += (float)mb_substr($l, 0, $i) * $this->__get("font_size");
                 } else {
                     $ret += (float)mb_substr($l, 0, $i) * $this->_stylesheet->get_dompdf()->getTree()->get_root()->get_style()->font_size;
@@ -2137,7 +2137,7 @@ class Style
         // length_in_pt uses the font size if units are em or ex (and, potentially, rem) so we'll calculate in the method
         if (($i = mb_strpos($fs, "rem")) !== false) {
             if ($this->_stylesheet->get_dompdf()->getTree()->get_root()->get_style() === null) {
-                // Interpreting it as "em", see https://github.com/dompdf/dompdf/issues/1406
+                // Interpreting it as "em", see https://github.com/sfneal/dompdf/issues/1406
                 $fs = (float)mb_substr($fs, 0, $i) * $this->_parent_font_size;
             } else {
                 $fs = (float)mb_substr($fs, 0, $i) * $this->_stylesheet->get_dompdf()->getTree()->get_root()->get_style()->font_size;

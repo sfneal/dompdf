@@ -1,7 +1,7 @@
 <?php
-namespace Dompdf\Frame;
+namespace Sfneal\Dompdf\Frame;
 
-use Dompdf\Frame;
+use Sfneal\Dompdf\Frame;
 use IteratorAggregate;
 
 /**

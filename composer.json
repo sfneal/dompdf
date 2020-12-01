@@ -1,8 +1,8 @@
 {
-    "name": "dompdf/dompdf",
+    "name": "sfneal/dompdf",
     "type": "library",
     "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
-    "homepage": "https://github.com/dompdf/dompdf",
+    "homepage": "https://github.com/sfneal/dompdf",
     "license": "LGPL-2.1",
     "authors": [
         {
@@ -20,7 +20,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Dompdf\\": "src/"
+            "Sfneal\\Dompdf": "src/"
         },
         "classmap": [
             "lib/"
@@ -28,7 +28,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Dompdf\\Tests\\": "tests/"
+            "Sfneal\\Dompdf\\Tests\\": "tests/"
         }
     },
     "require": {

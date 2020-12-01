@@ -6,12 +6,12 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameReflower;
+namespace Sfneal\Dompdf\FrameReflower;
 
-use Dompdf\Frame;
-use Dompdf\Helpers;
-use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
-use Dompdf\FrameDecorator\Image as ImageFrameDecorator;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\Helpers;
+use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\Image as ImageFrameDecorator;
 
 /**
  * Image reflower class

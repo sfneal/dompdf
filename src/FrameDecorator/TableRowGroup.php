@@ -5,10 +5,10 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameDecorator;
+namespace Sfneal\Dompdf\FrameDecorator;
 
-use Dompdf\Dompdf;
-use Dompdf\Frame;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Frame;
 
 /**
  * Table row group decorator

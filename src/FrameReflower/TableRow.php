@@ -5,12 +5,12 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameReflower;
+namespace Sfneal\Dompdf\FrameReflower;
 
-use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
-use Dompdf\FrameDecorator\Table as TableFrameDecorator;
-use Dompdf\FrameDecorator\TableRow as TableRowFrameDecorator;
-use Dompdf\Exception;
+use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\Table as TableFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\TableRow as TableRowFrameDecorator;
+use Sfneal\Dompdf\Exception;
 
 /**
  * Reflows table rows

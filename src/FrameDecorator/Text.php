@@ -7,11 +7,11 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameDecorator;
+namespace Sfneal\Dompdf\FrameDecorator;
 
-use Dompdf\Dompdf;
-use Dompdf\Frame;
-use Dompdf\Exception;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\Exception;
 
 /**
  * Decorates Frame objects for text layout

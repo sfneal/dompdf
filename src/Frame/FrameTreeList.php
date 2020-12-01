@@ -1,8 +1,8 @@
 <?php
-namespace Dompdf\Frame;
+namespace Sfneal\Dompdf\Frame;
 
 use IteratorAggregate;
-use Dompdf\Frame;
+use Sfneal\Dompdf\Frame;
 
 /**
  * Pre-order IteratorAggregate

@@ -7,15 +7,15 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\Css;
+namespace Sfneal\Dompdf\Css;
 
 use DOMElement;
 use DOMXPath;
-use Dompdf\Dompdf;
-use Dompdf\Helpers;
-use Dompdf\Exception;
-use Dompdf\FontMetrics;
-use Dompdf\Frame\FrameTree;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Helpers;
+use Sfneal\Dompdf\Exception;
+use Sfneal\Dompdf\FontMetrics;
+use Sfneal\Dompdf\Frame\FrameTree;
 
 /**
  * The master stylesheet class

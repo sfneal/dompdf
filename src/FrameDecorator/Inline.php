@@ -6,12 +6,12 @@
  * @author  Helmut Tischer <htischer@weihenstephan.org>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameDecorator;
+namespace Sfneal\Dompdf\FrameDecorator;
 
 use DOMElement;
-use Dompdf\Dompdf;
-use Dompdf\Frame;
-use Dompdf\Exception;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\Exception;
 
 /**
  * Decorates frames for inline layout

@@ -5,10 +5,10 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf;
+namespace Sfneal\Dompdf;
 
-use Dompdf\FrameDecorator\Block;
-use Dompdf\FrameDecorator\Page;
+use Sfneal\Dompdf\FrameDecorator\Block;
+use Sfneal\Dompdf\FrameDecorator\Page;
 
 /**
  * The line box class

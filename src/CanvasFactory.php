@@ -5,7 +5,7 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf;
+namespace Sfneal\Dompdf;
 
 /**
  * Create canvas instances
@@ -42,14 +42,14 @@ class CanvasFactory
             if (($backend === "auto" || $backend === "pdflib") &&
                 class_exists("PDFLib", false)
             ) {
-                $class = "Dompdf\\Adapter\\PDFLib";
+                $class = "Sfneal\\DompdfAdapter\\PDFLib";
             }
 
             else {
                 if ($backend === "gd" && extension_loaded('gd')) {
-                    $class = "Dompdf\\Adapter\\GD";
+                    $class = "Sfneal\\DompdfAdapter\\GD";
                 } else {
-                    $class = "Dompdf\\Adapter\\CPDF";
+                    $class = "Sfneal\\DompdfAdapter\\CPDF";
                 }
             }
         }

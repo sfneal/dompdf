@@ -6,20 +6,20 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf;
+namespace Sfneal\Dompdf;
 
 use DOMDocument;
 use DOMNode;
-use Dompdf\Adapter\CPDF;
+use Sfneal\Dompdf\Adapter\CPDF;
 use DOMXPath;
-use Dompdf\Frame\Factory;
-use Dompdf\Frame\FrameTree;
+use Sfneal\Dompdf\Frame\Factory;
+use Sfneal\Dompdf\Frame\FrameTree;
 use HTML5_Tokenizer;
 use HTML5_TreeBuilder;
-use Dompdf\Image\Cache;
-use Dompdf\Renderer\ListBullet;
-use Dompdf\Css\Stylesheet;
-use Dompdf\Helpers;
+use Sfneal\Dompdf\Image\Cache;
+use Sfneal\Dompdf\Renderer\ListBullet;
+use Sfneal\Dompdf\Css\Stylesheet;
+use Sfneal\Dompdf\Helpers;
 
 /**
  * Dompdf - PHP5 HTML to PDF renderer

@@ -5,10 +5,10 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\Renderer;
+namespace Sfneal\Dompdf\Renderer;
 
-use Dompdf\Frame;
-use Dompdf\FrameDecorator\Table;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\FrameDecorator\Table;
 
 /**
  * Renders table cells

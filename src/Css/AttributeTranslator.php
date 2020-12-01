@@ -6,9 +6,9 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\Css;
+namespace Sfneal\Dompdf\Css;
 
-use Dompdf\Frame;
+use Sfneal\Dompdf\Frame;
 
 /**
  * Translates HTML 4.0 attributes into CSS rules

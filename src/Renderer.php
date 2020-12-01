@@ -5,15 +5,15 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf;
+namespace Sfneal\Dompdf;
 
-use Dompdf\Renderer\AbstractRenderer;
-use Dompdf\Renderer\Block;
-use Dompdf\Renderer\Image;
-use Dompdf\Renderer\ListBullet;
-use Dompdf\Renderer\TableCell;
-use Dompdf\Renderer\TableRowGroup;
-use Dompdf\Renderer\Text;
+use Sfneal\Dompdf\Renderer\AbstractRenderer;
+use Sfneal\Dompdf\Renderer\Block;
+use Sfneal\Dompdf\Renderer\Image;
+use Sfneal\Dompdf\Renderer\ListBullet;
+use Sfneal\Dompdf\Renderer\TableCell;
+use Sfneal\Dompdf\Renderer\TableRowGroup;
+use Sfneal\Dompdf\Renderer\Text;
 
 /**
  * Concrete renderer

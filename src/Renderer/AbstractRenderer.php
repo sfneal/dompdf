@@ -7,15 +7,15 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\Renderer;
+namespace Sfneal\Dompdf\Renderer;
 
-use Dompdf\Adapter\CPDF;
-use Dompdf\Css\Color;
-use Dompdf\Css\Style;
-use Dompdf\Dompdf;
-use Dompdf\Helpers;
-use Dompdf\Frame;
-use Dompdf\Image\Cache;
+use Sfneal\Dompdf\Adapter\CPDF;
+use Sfneal\Dompdf\Css\Color;
+use Sfneal\Dompdf\Css\Style;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Helpers;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\Image\Cache;
 
 /**
  * Base renderer class

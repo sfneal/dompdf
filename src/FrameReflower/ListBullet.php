@@ -5,10 +5,10 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameReflower;
+namespace Sfneal\Dompdf\FrameReflower;
 
-use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
-use Dompdf\FrameDecorator\AbstractFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\AbstractFrameDecorator;
 
 /**
  * Reflows list bullets

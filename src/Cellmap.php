@@ -5,10 +5,10 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf;
+namespace Sfneal\Dompdf;
 
-use Dompdf\FrameDecorator\Table as TableFrameDecorator;
-use Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\Table as TableFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
 
 /**
  * Maps table cells to the table grid.

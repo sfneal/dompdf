@@ -6,14 +6,14 @@
  * @author  Fabien Ménager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameReflower;
+namespace Sfneal\Dompdf\FrameReflower;
 
-use Dompdf\Frame;
-use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
-use Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
-use Dompdf\FrameDecorator\Text as TextFrameDecorator;
-use Dompdf\Exception;
-use Dompdf\Css\Style;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
+use Sfneal\Dompdf\FrameDecorator\Text as TextFrameDecorator;
+use Sfneal\Dompdf\Exception;
+use Sfneal\Dompdf\Css\Style;
 
 /**
  * Reflows block frames

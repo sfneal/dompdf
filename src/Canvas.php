@@ -7,7 +7,7 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Dompdf;
+namespace Sfneal\Dompdf;
 
 /**
  * Main rendering interface

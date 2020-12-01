@@ -1,8 +1,8 @@
 <?php
-namespace Dompdf\Tests;
+namespace Sfneal\Dompdf\Tests;
 
-use Dompdf\Options;
-use Dompdf\Tests\TestCase;
+use Sfneal\Dompdf\Options;
+use Sfneal\Dompdf\Tests\TestCase;
 
 class OptionsTest extends TestCase
 {

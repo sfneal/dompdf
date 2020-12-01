@@ -1,11 +1,11 @@
 Dompdf
 ======
 
-[![Build Status](https://travis-ci.org/dompdf/dompdf.png?branch=master)](https://travis-ci.org/dompdf/dompdf)
-[![Latest Stable Version](https://poser.pugx.org/dompdf/dompdf/v/stable.png)](https://packagist.org/packages/dompdf/dompdf)
-[![Total Downloads](https://poser.pugx.org/dompdf/dompdf/downloads.png)](https://packagist.org/packages/dompdf/dompdf)
-[![Latest Unstable Version](https://poser.pugx.org/dompdf/dompdf/v/unstable.png)](https://packagist.org/packages/dompdf/dompdf)
-[![License](https://poser.pugx.org/dompdf/dompdf/license.png)](https://packagist.org/packages/dompdf/dompdf)
+[![Build Status](https://travis-ci.org/sfneal/dompdf.png?branch=master)](https://travis-ci.org/sfneal/dompdf)
+[![Latest Stable Version](https://poser.pugx.org/sfneal/dompdf/v/stable.png)](https://packagist.org/packages/sfneal/dompdf)
+[![Total Downloads](https://poser.pugx.org/sfneal/dompdf/downloads.png)](https://packagist.org/packages/sfneal/dompdf)
+[![Latest Unstable Version](https://poser.pugx.org/sfneal/dompdf/v/unstable.png)](https://packagist.org/packages/sfneal/dompdf)
+[![License](https://poser.pugx.org/sfneal/dompdf/license.png)](https://packagist.org/packages/sfneal/dompdf)
  
 **Dompdf is an HTML to PDF converter**
 
@@ -17,7 +17,7 @@ HTML attributes.
 
 *This document applies to the latest stable code which may not reflect the current 
 release. For released code please
-[navigate to the appropriate tag](https://github.com/dompdf/dompdf/tags).*
+[navigate to the appropriate tag](https://github.com/sfneal/dompdf/tags).*
 
 ----
 
@@ -62,7 +62,7 @@ Note that some required dependencies may have further dependencies (notably php-
  * IMagick or GMagick extension: improves image processing performance
 
 Visit the wiki for more information:
-https://github.com/dompdf/dompdf/wiki/Requirements
+https://github.com/sfneal/dompdf/wiki/Requirements
 
 ## About Fonts & Character Encoding
 
@@ -72,7 +72,7 @@ encoding. In order for a PDF to display characters that are not available in
 Windows ANSI, you must supply an external font. Dompdf will embed any referenced
 font in the PDF so long as it has been pre-loaded or is accessible to dompdf and
 reference in CSS @font-face rules. See the
-[font overview](https://github.com/dompdf/dompdf/wiki/About-Fonts-and-Character-Encoding)
+[font overview](https://github.com/sfneal/dompdf/wiki/About-Fonts-and-Character-Encoding)
 for more information on how to use fonts.
 
 The [DejaVu TrueType fonts](https://dejavu-fonts.github.io/) have been pre-installed
@@ -89,7 +89,7 @@ To install with [Composer](https://getcomposer.org/), simply require the
 latest version of this package.
 
 ```bash
-composer require dompdf/dompdf
+composer require sfneal/dompdf
 ```
 
 Make sure that the autoload file from Composer is loaded.
@@ -107,7 +107,7 @@ Download a packaged archive of dompdf and extract it into the
 directory where dompdf will reside
 
  * You can download stable copies of dompdf from
-   https://github.com/dompdf/dompdf/releases
+   https://github.com/sfneal/dompdf/releases
  * Or download a nightly (the latest, unreleased code) from
    http://eclecticgeek.com/dompdf
 
@@ -130,7 +130,7 @@ From the command line, switch to the directory where dompdf will
 reside and run the following commands:
 
 ```sh
-git clone https://github.com/dompdf/dompdf.git
+git clone https://github.com/sfneal/dompdf.git
 cd dompdf/lib
 
 git clone https://github.com/PhenX/php-font-lib.git php-font-lib
@@ -157,7 +157,7 @@ Just pass your HTML in to dompdf and stream the output:
 
 ```php
 // reference the Dompdf namespace
-use Dompdf\Dompdf;
+use Sfneal\Dompdf\Dompdf;
 
 // instantiate and use the dompdf class
 $dompdf = new Dompdf();
@@ -178,8 +178,8 @@ $dompdf->stream();
 Set options during dompdf instantiation:
 
 ```php
-use Dompdf\Dompdf;
-use Dompdf\Options;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Options;
 
 $options = new Options();
 $options->set('defaultFont', 'Courier');
@@ -189,7 +189,7 @@ $dompdf = new Dompdf($options);
 or at run time
 
 ```php
-use Dompdf\Dompdf;
+use Sfneal\Dompdf\Dompdf;
 
 $dompdf = new Dompdf();
 $options = $dompdf->getOptions();
@@ -215,7 +215,7 @@ See [Dompdf\Options](src/Options.php) for a list of available options.
      ```php
      $html = '<img src="data:image/svg+xml;base64,' . base64_encode($svg) . '" ...>';
      ```
-     Watch https://github.com/dompdf/dompdf/issues/320 for progress
+     Watch https://github.com/sfneal/dompdf/issues/320 for progress
 
 ---
 

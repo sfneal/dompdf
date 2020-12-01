@@ -10,14 +10,14 @@
  */
 
 // FIXME: Need to sanity check inputs to this class
-namespace Dompdf\Adapter;
+namespace Sfneal\Dompdf\Adapter;
 
-use Dompdf\Canvas;
-use Dompdf\Dompdf;
-use Dompdf\Helpers;
-use Dompdf\Exception;
-use Dompdf\Image\Cache;
-use Dompdf\PhpEvaluator;
+use Sfneal\Dompdf\Canvas;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Helpers;
+use Sfneal\Dompdf\Exception;
+use Sfneal\Dompdf\Image\Cache;
+use Sfneal\Dompdf\PhpEvaluator;
 use FontLib\Exception\FontNotFoundException;
 
 /**
@@ -618,7 +618,7 @@ class CPDF implements Canvas
             if (!method_exists(Helpers::class, $func_name)) {
                 throw new Exception("Function $func_name() not found.  Cannot convert $type image: $image_url.  Please install the image PHP extension.");
             }
-            $func_name = "\\Dompdf\\Helpers::" . $func_name;
+            $func_name = "\\Sfneal\\DompdfHelpers::" . $func_name;
         }
 
         set_error_handler([Helpers::class, 'record_warnings']);

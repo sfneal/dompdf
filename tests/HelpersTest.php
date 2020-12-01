@@ -1,8 +1,8 @@
 <?php
-namespace Dompdf\Tests;
+namespace Sfneal\Dompdf\Tests;
 
-use Dompdf\Helpers;
-use Dompdf\Tests\TestCase;
+use Sfneal\Dompdf\Helpers;
+use Sfneal\Dompdf\Tests\TestCase;
 
 class HelpersTest extends TestCase
 {

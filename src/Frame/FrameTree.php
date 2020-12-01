@@ -1,14 +1,14 @@
 <?php
 
-namespace Dompdf\Frame;
+namespace Sfneal\Dompdf\Frame;
 
 use DOMDocument;
 use DOMNode;
 use DOMElement;
 use DOMXPath;
 
-use Dompdf\Exception;
-use Dompdf\Frame;
+use Sfneal\Dompdf\Exception;
+use Sfneal\Dompdf\Frame;
 
 /**
  * @package dompdf

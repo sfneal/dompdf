@@ -5,13 +5,13 @@
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
-namespace Dompdf\FrameDecorator;
+namespace Sfneal\Dompdf\FrameDecorator;
 
-use Dompdf\Css\Style;
-use Dompdf\Dompdf;
-use Dompdf\Helpers;
-use Dompdf\Frame;
-use Dompdf\Renderer;
+use Sfneal\Dompdf\Css\Style;
+use Sfneal\Dompdf\Dompdf;
+use Sfneal\Dompdf\Helpers;
+use Sfneal\Dompdf\Frame;
+use Sfneal\Dompdf\Renderer;
 
 /**
  * Decorates frames for page layout
