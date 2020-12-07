@@ -24,7 +24,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Sfneal\\Dompdf\\": "src/"
+            "Dompdf\\": "src/"
         },
         "classmap": [
             "lib/"
@@ -32,7 +32,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Sfneal\\Dompdf\\Tests\\": "tests/"
+            "Dompdf\\Tests\\": "tests/"
         }
     },
     "require": {
