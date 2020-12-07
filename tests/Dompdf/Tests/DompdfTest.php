@@ -1,12 +1,13 @@
 <?php
+
 namespace Dompdf\Tests;
 
+use DOMDocument;
+use Dompdf\Css\Stylesheet;
+use Dompdf\Dompdf;
 use Dompdf\Frame\FrameTree;
 use Dompdf\Options;
 use PHPUnit\Framework\TestCase;
-use Dompdf\Dompdf;
-use Dompdf\Css\Stylesheet;
-use DOMDocument;
 
 class DompdfTest extends TestCase
 {
@@ -31,10 +32,10 @@ class DompdfTest extends TestCase
         $dompdf = new Dompdf();
         $dompdf->setBaseHost('test1');
         $dompdf->setBasePath('test2');
-        $dompdf->setCallbacks(['test' => ['event' => 'test', 'f' => function() {}]]);
+        $dompdf->setCallbacks(['test' => ['event' => 'test', 'f' => function () {}]]);
         $dompdf->setCss(new Stylesheet($dompdf));
         $dompdf->setDom(new DOMDocument());
-        $dompdf->setHttpContext(fopen(__DIR__ . "/_files/jamaica.jpg", 'r'));
+        $dompdf->setHttpContext(fopen(__DIR__.'/_files/jamaica.jpg', 'r'));
         $dompdf->setOptions(new Options());
         $dompdf->setProtocol('test3');
         $dompdf->setTree(new FrameTree($dompdf->getDom()));
@@ -80,20 +81,20 @@ class DompdfTest extends TestCase
         // will dispose of it before dompdf->render finishes
         $dompdf->setCallbacks(['test' => [
             'event' => 'end_page_render',
-            'f' => function($params) use (&$text_frame_contents) {
-                $frame = $params["frame"];
+            'f'     => function ($params) use (&$text_frame_contents) {
+                $frame = $params['frame'];
                 foreach ($frame->get_children() as $child) {
                     foreach ($child->get_children() as $grandchild) {
                         $text_frame_contents[] = $grandchild->get_text();
                     }
                 }
-            }
+            },
         ]]);
 
         $dompdf->loadHtml('<html><body><span>one</span><span> - two</span></body></html>');
         $dompdf->render();
 
-        $this->assertEquals("one", $text_frame_contents[0]);
-        $this->assertEquals(" - two", $text_frame_contents[1]);
+        $this->assertEquals('one', $text_frame_contents[0]);
+        $this->assertEquals(' - two', $text_frame_contents[1]);
     }
 }

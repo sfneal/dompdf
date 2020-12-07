@@ -1,4 +1,5 @@
 <?php
+
 namespace Dompdf\Tests;
 
 use Dompdf\Helpers;
@@ -12,7 +13,7 @@ class HelpersTest extends TestCase
             'mime' => 'data:image/png;base64,',
             'data' => 'iVBORw0KGgoAAAANSUhEUgAAAAUA
 AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
-9TXL0Y4OHwAAAABJRU5ErkJggg=='
+9TXL0Y4OHwAAAABJRU5ErkJggg==',
         ];
         $result = Helpers::parse_data_uri(implode('', $imageParts));
         $this->assertEquals(
