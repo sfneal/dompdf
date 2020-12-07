@@ -173,9 +173,9 @@ class CPDF implements Canvas
     /**
      * Class constructor.
      *
-     * @param mixed $paper The size of paper to use in this PDF ({@link CPDF::$PAPER_SIZES})
-     * @param string $orientation The orientation of the document (either 'landscape' or 'portrait')
-     * @param Dompdf|null $dompdf The Dompdf instance
+     * @param mixed       $paper       The size of paper to use in this PDF ({@link CPDF::$PAPER_SIZES})
+     * @param string      $orientation The orientation of the document (either 'landscape' or 'portrait')
+     * @param Dompdf|null $dompdf      The Dompdf instance
      */
     public function __construct($paper = 'letter', $orientation = 'portrait', Dompdf $dompdf = null)
     {
@@ -856,14 +856,14 @@ class CPDF implements Canvas
             /** @noinspection PhpMissingBreakStatementInspection */
             case 'bmp':
                 if ($debug_png) {
-                    print '!!!bmp or gif!!!';
+                    echo '!!!bmp or gif!!!';
                 }
                 // @todo use cache for BMP and GIF
                 $img = $this->_convert_gif_bmp_to_png($img, $type);
 
             case 'png':
                 if ($debug_png) {
-                    print '!!!png!!!';
+                    echo '!!!png!!!';
                 }
 
                 $this->_pdf->addPngFromFile($img, $x, $this->y($y) - $h, $w, $h);
@@ -871,7 +871,7 @@ class CPDF implements Canvas
 
             case 'svg':
                 if ($debug_png) {
-                    print '!!!SVG!!!';
+                    echo '!!!SVG!!!';
                 }
 
                 $this->_pdf->addSvgFromFile($img, $x, $this->y($y) - $h, $w, $h);
@@ -879,7 +879,7 @@ class CPDF implements Canvas
 
             default:
                 if ($debug_png) {
-                    print '!!!unknown!!!';
+                    echo '!!!unknown!!!';
                 }
         }
     }

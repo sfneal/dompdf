@@ -4751,14 +4751,14 @@ EOT;
      * add a PNG image into the document, from a GD object
      * this should work with remote files.
      *
-     * @param string $file The PNG file
-     * @param float $x X position
-     * @param float $y Y position
-     * @param float $w Width
-     * @param float $h Height
-     * @param null $img A GD resource
-     * @param bool $is_mask true if the image is a mask
-     * @param null $mask true if the image is masked
+     * @param string $file    The PNG file
+     * @param float  $x       X position
+     * @param float  $y       Y position
+     * @param float  $w       Width
+     * @param float  $h       Height
+     * @param null   $img     A GD resource
+     * @param bool   $is_mask true if the image is a mask
+     * @param null   $mask    true if the image is masked
      *
      * @throws Exception
      */
