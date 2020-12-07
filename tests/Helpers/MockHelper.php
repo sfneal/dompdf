@@ -2,10 +2,10 @@
 
 namespace Dompdf\Tests\Helpers;
 
-use Mockery\MockInterface;
 use Dompdf\Css\Style;
 use Dompdf\Css\Stylesheet;
 use Dompdf\Dompdf;
+use Mockery\MockInterface;
 
 class MockHelper
 {
