@@ -3083,7 +3083,7 @@ class Style
      */
     function set_z_index($val)
     {
-        if (round($val) != $val && $val !== "auto") {
+        if (round(intval($val)) != $val && $val !== "auto") {
             return;
         }
 
