@@ -7,7 +7,6 @@ use Dompdf\Css\Stylesheet;
 use Dompdf\Dompdf;
 use Dompdf\Frame\FrameTree;
 use Dompdf\Options;
-use PHPUnit\Framework\TestCase;
 
 class DompdfTest extends TestCase
 {
