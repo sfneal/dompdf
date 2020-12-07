@@ -289,7 +289,7 @@ class Options
      * @deprecated
      */
     private $adminPassword = 'password';
-    
+
     /**
      * @param array|null $attributes
      */
@@ -380,7 +380,7 @@ class Options
 
         return $this;
     }
-    
+
     /**
      * @param string $key
      *
@@ -448,7 +448,7 @@ class Options
 
         return null;
     }
-    
+
     /**
      * @param string $adminPassword
      *
@@ -488,7 +488,7 @@ class Options
     {
         return $this->adminUsername;
     }
-    
+
     /**
      * @param string $pdfBackend
      *
@@ -508,7 +508,7 @@ class Options
     {
         return $this->pdfBackend;
     }
-    
+
     /**
      * @param string $pdflibLicense
      *
@@ -528,7 +528,7 @@ class Options
     {
         return $this->pdflibLicense;
     }
-    
+
     /**
      * @param string $chroot
      *
@@ -548,7 +548,7 @@ class Options
     {
         return $this->chroot;
     }
-    
+
     /**
      * @param bool $debugCss
      *
@@ -568,7 +568,7 @@ class Options
     {
         return $this->debugCss;
     }
-    
+
     /**
      * @param bool $debugKeepTemp
      *
@@ -588,7 +588,7 @@ class Options
     {
         return $this->debugKeepTemp;
     }
-    
+
     /**
      * @param bool $debugLayout
      *
@@ -608,7 +608,7 @@ class Options
     {
         return $this->debugLayout;
     }
-    
+
     /**
      * @param bool $debugLayoutBlocks
      *
@@ -628,7 +628,7 @@ class Options
     {
         return $this->debugLayoutBlocks;
     }
-    
+
     /**
      * @param bool $debugLayoutInline
      *
@@ -648,7 +648,7 @@ class Options
     {
         return $this->debugLayoutInline;
     }
-    
+
     /**
      * @param bool $debugLayoutLines
      *
@@ -668,7 +668,7 @@ class Options
     {
         return $this->debugLayoutLines;
     }
-    
+
     /**
      * @param bool $debugLayoutPaddingBox
      *
@@ -688,7 +688,7 @@ class Options
     {
         return $this->debugLayoutPaddingBox;
     }
-    
+
     /**
      * @param bool $debugPng
      *
@@ -708,7 +708,7 @@ class Options
     {
         return $this->debugPng;
     }
-    
+
     /**
      * @param string $defaultFont
      *
@@ -728,7 +728,7 @@ class Options
     {
         return $this->defaultFont;
     }
-    
+
     /**
      * @param string $defaultMediaType
      *
@@ -748,7 +748,7 @@ class Options
     {
         return $this->defaultMediaType;
     }
-    
+
     /**
      * @param string $defaultPaperSize
      *
@@ -760,7 +760,7 @@ class Options
 
         return $this;
     }
-    
+
     /**
      * @param string $defaultPaperOrientation
      *
@@ -828,7 +828,7 @@ class Options
     {
         return $this->fontCache;
     }
-    
+
     /**
      * @param string $fontDir
      *
@@ -848,7 +848,7 @@ class Options
     {
         return $this->fontDir;
     }
-    
+
     /**
      * @param float $fontHeightRatio
      *
@@ -868,7 +868,7 @@ class Options
     {
         return $this->fontHeightRatio;
     }
-    
+
     /**
      * @param bool $isFontSubsettingEnabled
      *
@@ -896,7 +896,7 @@ class Options
     {
         return $this->getIsFontSubsettingEnabled();
     }
-    
+
     /**
      * @param bool $isHtml5ParserEnabled
      *
@@ -924,7 +924,7 @@ class Options
     {
         return $this->getIsHtml5ParserEnabled();
     }
-    
+
     /**
      * @param bool $isJavascriptEnabled
      *
@@ -952,7 +952,7 @@ class Options
     {
         return $this->getIsJavascriptEnabled();
     }
-    
+
     /**
      * @param bool $isPhpEnabled
      *
@@ -980,7 +980,7 @@ class Options
     {
         return $this->getIsPhpEnabled();
     }
-    
+
     /**
      * @param bool $isRemoteEnabled
      *
@@ -1008,7 +1008,7 @@ class Options
     {
         return $this->getIsRemoteEnabled();
     }
-    
+
     /**
      * @param string $logOutputFile
      *
@@ -1028,7 +1028,7 @@ class Options
     {
         return $this->logOutputFile;
     }
-    
+
     /**
      * @param string $tempDir
      *
@@ -1048,7 +1048,7 @@ class Options
     {
         return $this->tempDir;
     }
-    
+
     /**
      * @param string $rootDir
      *
