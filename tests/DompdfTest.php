@@ -94,6 +94,6 @@ class DompdfTest extends TestCase
         $dompdf->render();
 
         $this->assertEquals('one', $text_frame_contents[0]);
-        $this->assertEquals('- two', $text_frame_contents[1]);
+        $this->assertEquals(' - two', $text_frame_contents[1]);
     }
 }
