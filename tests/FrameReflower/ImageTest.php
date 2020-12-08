@@ -2,13 +2,13 @@
 
 namespace Dompdf\Tests\FrameReflower;
 
-use Mockery;
 use Dompdf\Css\Style;
 use Dompdf\Css\Stylesheet;
 use Dompdf\Dompdf;
 use Dompdf\FrameDecorator\Image as ImageFrameDecorator;
 use Dompdf\FrameReflower\Image;
 use Dompdf\Tests\TestCase;
+use Mockery;
 
 class ImageTest extends TestCase
 {
