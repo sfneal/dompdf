@@ -7,7 +7,6 @@ use Dompdf\Css\Stylesheet;
 use Dompdf\Dompdf;
 use Dompdf\Frame\FrameTree;
 use Dompdf\Options;
-use PHPUnit\Framework\TestCase;
 
 class DompdfTest extends TestCase
 {
@@ -95,6 +94,6 @@ class DompdfTest extends TestCase
         $dompdf->render();
 
         $this->assertEquals('one', $text_frame_contents[0]);
-        $this->assertEquals(' - two', $text_frame_contents[1]);
+        $this->assertEquals('- two', $text_frame_contents[1]);
     }
 }
