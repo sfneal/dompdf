@@ -291,7 +291,7 @@ class Options
     private $adminPassword = 'password';
     
     /**
-     * @param array $attributes
+     * @param array|null $attributes
      */
     public function __construct(array $attributes = null)
     {
@@ -313,7 +313,7 @@ class Options
      *
      * @return $this
      */
-    public function set($attributes, $value = null)
+    public function set($attributes, $value = null): Options
     {
         if (!is_array($attributes)) {
             $attributes = [$attributes => $value];
@@ -454,7 +454,7 @@ class Options
      *
      * @return $this
      */
-    public function setAdminPassword($adminPassword)
+    public function setAdminPassword(string $adminPassword): Options
     {
         $this->adminPassword = $adminPassword;
         
@@ -464,7 +464,7 @@ class Options
     /**
      * @return string
      */
-    public function getAdminPassword()
+    public function getAdminPassword(): string
     {
         return $this->adminPassword;
     }
@@ -474,7 +474,7 @@ class Options
      *
      * @return $this
      */
-    public function setAdminUsername($adminUsername)
+    public function setAdminUsername(string $adminUsername): Options
     {
         $this->adminUsername = $adminUsername;
         
@@ -484,7 +484,7 @@ class Options
     /**
      * @return string
      */
-    public function getAdminUsername()
+    public function getAdminUsername(): string
     {
         return $this->adminUsername;
     }
@@ -494,7 +494,7 @@ class Options
      *
      * @return $this
      */
-    public function setPdfBackend($pdfBackend)
+    public function setPdfBackend(string $pdfBackend): Options
     {
         $this->pdfBackend = $pdfBackend;
         
@@ -504,7 +504,7 @@ class Options
     /**
      * @return string
      */
-    public function getPdfBackend()
+    public function getPdfBackend(): string
     {
         return $this->pdfBackend;
     }
@@ -514,7 +514,7 @@ class Options
      *
      * @return $this
      */
-    public function setPdflibLicense($pdflibLicense)
+    public function setPdflibLicense(string $pdflibLicense): Options
     {
         $this->pdflibLicense = $pdflibLicense;
         
@@ -524,7 +524,7 @@ class Options
     /**
      * @return string
      */
-    public function getPdflibLicense()
+    public function getPdflibLicense(): string
     {
         return $this->pdflibLicense;
     }
@@ -534,7 +534,7 @@ class Options
      *
      * @return $this
      */
-    public function setChroot($chroot)
+    public function setChroot(string $chroot): Options
     {
         $this->chroot = $chroot;
         
@@ -544,7 +544,7 @@ class Options
     /**
      * @return string
      */
-    public function getChroot()
+    public function getChroot(): string
     {
         return $this->chroot;
     }
@@ -554,7 +554,7 @@ class Options
      *
      * @return $this
      */
-    public function setDebugCss($debugCss)
+    public function setDebugCss(bool $debugCss): Options
     {
         $this->debugCss = $debugCss;
         
@@ -564,7 +564,7 @@ class Options
     /**
      * @return bool
      */
-    public function getDebugCss()
+    public function getDebugCss(): bool
     {
         return $this->debugCss;
     }
@@ -574,7 +574,7 @@ class Options
      *
      * @return $this
      */
-    public function setDebugKeepTemp($debugKeepTemp)
+    public function setDebugKeepTemp(bool $debugKeepTemp): Options
     {
         $this->debugKeepTemp = $debugKeepTemp;
         
@@ -584,7 +584,7 @@ class Options
     /**
      * @return bool
      */
-    public function getDebugKeepTemp()
+    public function getDebugKeepTemp(): bool
     {
         return $this->debugKeepTemp;
     }
@@ -594,7 +594,7 @@ class Options
      *
      * @return $this
      */
-    public function setDebugLayout($debugLayout)
+    public function setDebugLayout(bool $debugLayout): Options
     {
         $this->debugLayout = $debugLayout;
         
@@ -604,7 +604,7 @@ class Options
     /**
      * @return bool
      */
-    public function getDebugLayout()
+    public function getDebugLayout(): bool
     {
         return $this->debugLayout;
     }
@@ -614,7 +614,7 @@ class Options
      *
      * @return $this
      */
-    public function setDebugLayoutBlocks($debugLayoutBlocks)
+    public function setDebugLayoutBlocks(bool $debugLayoutBlocks): Options
     {
         $this->debugLayoutBlocks = $debugLayoutBlocks;
         
@@ -624,7 +624,7 @@ class Options
     /**
      * @return bool
      */
-    public function getDebugLayoutBlocks()
+    public function getDebugLayoutBlocks(): bool
     {
         return $this->debugLayoutBlocks;
     }
@@ -634,7 +634,7 @@ class Options
      *
      * @return $this
      */
-    public function setDebugLayoutInline($debugLayoutInline)
+    public function setDebugLayoutInline(bool $debugLayoutInline): Options
     {
         $this->debugLayoutInline = $debugLayoutInline;
         
@@ -644,7 +644,7 @@ class Options
     /**
      * @return bool
      */
-    public function getDebugLayoutInline()
+    public function getDebugLayoutInline(): bool
     {
         return $this->debugLayoutInline;
     }
@@ -654,7 +654,7 @@ class Options
      *
      * @return $this
      */
-    public function setDebugLayoutLines($debugLayoutLines)
+    public function setDebugLayoutLines(bool $debugLayoutLines): Options
     {
         $this->debugLayoutLines = $debugLayoutLines;
         
@@ -664,7 +664,7 @@ class Options
     /**
      * @return bool
      */
-    public function getDebugLayoutLines()
+    public function getDebugLayoutLines(): bool
     {
         return $this->debugLayoutLines;
     }
@@ -674,7 +674,7 @@ class Options
      *
      * @return $this
      */
-    public function setDebugLayoutPaddingBox($debugLayoutPaddingBox)
+    public function setDebugLayoutPaddingBox(bool $debugLayoutPaddingBox): Options
     {
         $this->debugLayoutPaddingBox = $debugLayoutPaddingBox;
         
@@ -684,7 +684,7 @@ class Options
     /**
      * @return bool
      */
-    public function getDebugLayoutPaddingBox()
+    public function getDebugLayoutPaddingBox(): bool
     {
         return $this->debugLayoutPaddingBox;
     }
@@ -694,7 +694,7 @@ class Options
      *
      * @return $this
      */
-    public function setDebugPng($debugPng)
+    public function setDebugPng(bool $debugPng): Options
     {
         $this->debugPng = $debugPng;
         
@@ -704,7 +704,7 @@ class Options
     /**
      * @return bool
      */
-    public function getDebugPng()
+    public function getDebugPng(): bool
     {
         return $this->debugPng;
     }
@@ -714,7 +714,7 @@ class Options
      *
      * @return $this
      */
-    public function setDefaultFont($defaultFont)
+    public function setDefaultFont(string $defaultFont): Options
     {
         $this->defaultFont = $defaultFont;
         
@@ -724,7 +724,7 @@ class Options
     /**
      * @return string
      */
-    public function getDefaultFont()
+    public function getDefaultFont(): string
     {
         return $this->defaultFont;
     }
@@ -734,7 +734,7 @@ class Options
      *
      * @return $this
      */
-    public function setDefaultMediaType($defaultMediaType)
+    public function setDefaultMediaType(string $defaultMediaType): Options
     {
         $this->defaultMediaType = $defaultMediaType;
         
@@ -744,7 +744,7 @@ class Options
     /**
      * @return string
      */
-    public function getDefaultMediaType()
+    public function getDefaultMediaType(): string
     {
         return $this->defaultMediaType;
     }
@@ -754,7 +754,7 @@ class Options
      *
      * @return $this
      */
-    public function setDefaultPaperSize($defaultPaperSize)
+    public function setDefaultPaperSize(string $defaultPaperSize): Options
     {
         $this->defaultPaperSize = $defaultPaperSize;
         
@@ -766,7 +766,7 @@ class Options
      *
      * @return $this
      */
-    public function setDefaultPaperOrientation($defaultPaperOrientation)
+    public function setDefaultPaperOrientation(string $defaultPaperOrientation): Options
     {
         $this->defaultPaperOrientation = $defaultPaperOrientation;
         
@@ -776,7 +776,7 @@ class Options
     /**
      * @return string
      */
-    public function getDefaultPaperSize()
+    public function getDefaultPaperSize(): string
     {
         return $this->defaultPaperSize;
     }
@@ -784,7 +784,7 @@ class Options
     /**
      * @return string
      */
-    public function getDefaultPaperOrientation()
+    public function getDefaultPaperOrientation(): string
     {
         return $this->defaultPaperOrientation;
     }
@@ -794,7 +794,7 @@ class Options
      *
      * @return $this
      */
-    public function setDpi($dpi)
+    public function setDpi(int $dpi): Options
     {
         $this->dpi = $dpi;
         
@@ -804,7 +804,7 @@ class Options
     /**
      * @return int
      */
-    public function getDpi()
+    public function getDpi(): int
     {
         return $this->dpi;
     }
@@ -814,7 +814,7 @@ class Options
      *
      * @return $this
      */
-    public function setFontCache($fontCache)
+    public function setFontCache(string $fontCache): Options
     {
         $this->fontCache = $fontCache;
         
@@ -824,7 +824,7 @@ class Options
     /**
      * @return string
      */
-    public function getFontCache()
+    public function getFontCache(): string
     {
         return $this->fontCache;
     }
@@ -834,7 +834,7 @@ class Options
      *
      * @return $this
      */
-    public function setFontDir($fontDir)
+    public function setFontDir(string $fontDir): Options
     {
         $this->fontDir = $fontDir;
         
@@ -844,7 +844,7 @@ class Options
     /**
      * @return string
      */
-    public function getFontDir()
+    public function getFontDir(): string
     {
         return $this->fontDir;
     }
@@ -854,7 +854,7 @@ class Options
      *
      * @return $this
      */
-    public function setFontHeightRatio($fontHeightRatio)
+    public function setFontHeightRatio(float $fontHeightRatio): Options
     {
         $this->fontHeightRatio = $fontHeightRatio;
         
@@ -864,7 +864,7 @@ class Options
     /**
      * @return float
      */
-    public function getFontHeightRatio()
+    public function getFontHeightRatio(): float
     {
         return $this->fontHeightRatio;
     }
@@ -874,7 +874,7 @@ class Options
      *
      * @return $this
      */
-    public function setIsFontSubsettingEnabled($isFontSubsettingEnabled)
+    public function setIsFontSubsettingEnabled(bool $isFontSubsettingEnabled): Options
     {
         $this->isFontSubsettingEnabled = $isFontSubsettingEnabled;
         
@@ -884,7 +884,7 @@ class Options
     /**
      * @return bool
      */
-    public function getIsFontSubsettingEnabled()
+    public function getIsFontSubsettingEnabled(): bool
     {
         return $this->isFontSubsettingEnabled;
     }
@@ -892,7 +892,7 @@ class Options
     /**
      * @return bool
      */
-    public function isFontSubsettingEnabled()
+    public function isFontSubsettingEnabled(): bool
     {
         return $this->getIsFontSubsettingEnabled();
     }
@@ -902,7 +902,7 @@ class Options
      *
      * @return $this
      */
-    public function setIsHtml5ParserEnabled($isHtml5ParserEnabled)
+    public function setIsHtml5ParserEnabled(bool $isHtml5ParserEnabled): Options
     {
         $this->isHtml5ParserEnabled = $isHtml5ParserEnabled;
         
@@ -912,7 +912,7 @@ class Options
     /**
      * @return bool
      */
-    public function getIsHtml5ParserEnabled()
+    public function getIsHtml5ParserEnabled(): bool
     {
         return $this->isHtml5ParserEnabled;
     }
@@ -920,7 +920,7 @@ class Options
     /**
      * @return bool
      */
-    public function isHtml5ParserEnabled()
+    public function isHtml5ParserEnabled(): bool
     {
         return $this->getIsHtml5ParserEnabled();
     }
@@ -930,7 +930,7 @@ class Options
      *
      * @return $this
      */
-    public function setIsJavascriptEnabled($isJavascriptEnabled)
+    public function setIsJavascriptEnabled(bool $isJavascriptEnabled): Options
     {
         $this->isJavascriptEnabled = $isJavascriptEnabled;
         
@@ -940,7 +940,7 @@ class Options
     /**
      * @return bool
      */
-    public function getIsJavascriptEnabled()
+    public function getIsJavascriptEnabled(): bool
     {
         return $this->isJavascriptEnabled;
     }
@@ -948,7 +948,7 @@ class Options
     /**
      * @return bool
      */
-    public function isJavascriptEnabled()
+    public function isJavascriptEnabled(): bool
     {
         return $this->getIsJavascriptEnabled();
     }
@@ -958,7 +958,7 @@ class Options
      *
      * @return $this
      */
-    public function setIsPhpEnabled($isPhpEnabled)
+    public function setIsPhpEnabled(bool $isPhpEnabled): Options
     {
         $this->isPhpEnabled = $isPhpEnabled;
         
@@ -968,7 +968,7 @@ class Options
     /**
      * @return bool
      */
-    public function getIsPhpEnabled()
+    public function getIsPhpEnabled(): bool
     {
         return $this->isPhpEnabled;
     }
@@ -976,7 +976,7 @@ class Options
     /**
      * @return bool
      */
-    public function isPhpEnabled()
+    public function isPhpEnabled(): bool
     {
         return $this->getIsPhpEnabled();
     }
@@ -986,7 +986,7 @@ class Options
      *
      * @return $this
      */
-    public function setIsRemoteEnabled($isRemoteEnabled)
+    public function setIsRemoteEnabled(bool $isRemoteEnabled): Options
     {
         $this->isRemoteEnabled = $isRemoteEnabled;
         
@@ -996,7 +996,7 @@ class Options
     /**
      * @return bool
      */
-    public function getIsRemoteEnabled()
+    public function getIsRemoteEnabled(): bool
     {
         return $this->isRemoteEnabled;
     }
@@ -1004,7 +1004,7 @@ class Options
     /**
      * @return bool
      */
-    public function isRemoteEnabled()
+    public function isRemoteEnabled(): bool
     {
         return $this->getIsRemoteEnabled();
     }
@@ -1014,7 +1014,7 @@ class Options
      *
      * @return $this
      */
-    public function setLogOutputFile($logOutputFile)
+    public function setLogOutputFile(string $logOutputFile): Options
     {
         $this->logOutputFile = $logOutputFile;
         
@@ -1024,7 +1024,7 @@ class Options
     /**
      * @return string
      */
-    public function getLogOutputFile()
+    public function getLogOutputFile(): string
     {
         return $this->logOutputFile;
     }
@@ -1034,7 +1034,7 @@ class Options
      *
      * @return $this
      */
-    public function setTempDir($tempDir)
+    public function setTempDir(string $tempDir): Options
     {
         $this->tempDir = $tempDir;
         
@@ -1044,7 +1044,7 @@ class Options
     /**
      * @return string
      */
-    public function getTempDir()
+    public function getTempDir(): string
     {
         return $this->tempDir;
     }
@@ -1054,7 +1054,7 @@ class Options
      *
      * @return $this
      */
-    public function setRootDir($rootDir)
+    public function setRootDir(string $rootDir): Options
     {
         $this->rootDir = $rootDir;
         
@@ -1064,7 +1064,7 @@ class Options
     /**
      * @return string
      */
-    public function getRootDir()
+    public function getRootDir(): string
     {
         return $this->rootDir;
     }
