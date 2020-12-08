@@ -252,7 +252,7 @@ class Options
      *
      * Valid settings are 'PDFLib', 'CPDF', 'GD', and 'auto'. 'auto' will
      * look for PDFLib and use it if found, or if not it will fall back on
-     * CPDF. 'GD' renders PDFs to graphic files. {@link Dompdf\CanvasFactory}
+     * CPDF. 'GD' renders PDFs to graphic files. {@link \Dompdf\CanvasFactory}
      * ultimately determines which rendering class to instantiate
      * based on this setting.
      *
