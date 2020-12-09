@@ -169,15 +169,15 @@ class CPDF implements Canvas
      * @var float
      */
     protected $_current_opacity = 1;
-
+    
     /**
      * Class constructor.
      *
-     * @param mixed  $paper       The size of paper to use in this PDF ({@link CPDF::$PAPER_SIZES})
+     * @param mixed $paper The size of paper to use in this PDF ({@link CPDF::$PAPER_SIZES})
      * @param string $orientation The orientation of the document (either 'landscape' or 'portrait')
-     * @param Dompdf $dompdf      The Dompdf instance
+     * @param Dompdf|null $dompdf The Dompdf instance
      */
-    public function __construct($paper = 'letter', $orientation = 'portrait', Dompdf $dompdf)
+    public function __construct($paper = 'letter', $orientation = 'portrait', Dompdf $dompdf = null)
     {
         if (is_array($paper)) {
             $size = $paper;
