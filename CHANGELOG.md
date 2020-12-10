@@ -19,3 +19,7 @@ All notable changes to `dompdf` will be documented in this file
 ## v0.9.2 - 2020-12-09
 - fix min phpunit/phpunit & mockery/mockery versions for php8 testing
 - fix issues with param defaults that raise errors in php8
+
+
+## v0.9.3 - 2020-12-10
+- cut support for php7.2 & below
