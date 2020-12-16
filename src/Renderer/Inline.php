@@ -31,10 +31,10 @@ class Inline extends AbstractRenderer
         // Draw the left border if applicable
         $bp = $style->get_border_properties();
         $widths = [
-            (float) $style->length_in_pt($bp['top']['width']),
-            (float) $style->length_in_pt($bp['right']['width']),
-            (float) $style->length_in_pt($bp['bottom']['width']),
-            (float) $style->length_in_pt($bp['left']['width']),
+            floatval($style->length_in_pt($bp['top']['width'])),
+            floatval($style->length_in_pt($bp['right']['width'])),
+            floatval($style->length_in_pt($bp['bottom']['width'])),
+            floatval($style->length_in_pt($bp['left']['width'])),
         ];
 
         // Draw the background & border behind each child.  To do this we need
