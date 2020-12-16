@@ -39,6 +39,7 @@
         "php": ">=7.3",
         "ext-dom": "*",
         "ext-mbstring": "*",
+        "illuminate/support": "*",
         "phenx/php-font-lib": "^0.5.1",
         "phenx/php-svg-lib": "^0.3.3"
     },
