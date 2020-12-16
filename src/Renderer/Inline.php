@@ -88,6 +88,7 @@ class Inline extends AbstractRenderer
 
         // Add the border widths
         Log::debug(json_encode($widths));
+        Log::debug(json_encode([$w, $h]));
         $w += floatval($widths[1]) + floatval($widths[3]);
         $h += floatval($widths[0]) + floatval($widths[2]);
 //        $w += (float) $widths[1] + (float) $widths[3];
