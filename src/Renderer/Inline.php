@@ -55,6 +55,7 @@ class Inline extends AbstractRenderer
             } else {
                 $w += (float) $child_w;
             }
+            Log::error(json_encode($child_h));
             $h = max($h, $child_h);
 
             if ($DEBUGLAYOUTINLINE) {
