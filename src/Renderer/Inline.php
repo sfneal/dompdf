@@ -35,7 +35,6 @@ class Inline extends AbstractRenderer
             (float) $style->length_in_pt($bp['bottom']['width']),
             (float) $style->length_in_pt($bp['left']['width']),
         ];
-        \Illuminate\Support\Facades\Log::info(json_encode(['widths'=>$widths]));
 
         // Draw the background & border behind each child.  To do this we need
         // to figure out just how much space each child takes:
@@ -49,12 +48,6 @@ class Inline extends AbstractRenderer
 
         foreach ($frame->get_children() as $child) {
             list($child_x, $child_y, $child_w, $child_h) = $child->get_padding_box();
-            \Illuminate\Support\Facades\Log::info(json_encode([
-                '$child_x,'=> $child_x,
-                '$child_y,'=> $child_y,
-                '$child_w,'=> $child_w,
-                '$child_h,'=> $child_h,
-            ]));
 
             if (is_null($w)) {
                 $w = (float) $child_w;
@@ -97,8 +90,14 @@ class Inline extends AbstractRenderer
             '$w,'=> $w,
             '$h,'=> $h,
         ]));
+
         $w += (float) $widths[1] + (float) $widths[3];
         $h += (float) $widths[0] + (float) $widths[2];
+
+        \Illuminate\Support\Facades\Log::debug(json_encode([
+            '$w,'=> $w,
+            '$h,'=> $h,
+        ]));
 
         // If this is the first row, draw the left border too
         if ($bp['left']['style'] !== 'none' && $bp['left']['color'] !== 'transparent' && $widths[3] > 0) {

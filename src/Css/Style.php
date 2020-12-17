@@ -582,10 +582,6 @@ class Style
             }
         }
 
-        \Illuminate\Support\Facades\Log::error(json_encode([
-            '$length,'=> $length,
-        ]));
-
         $ret = 0;
         foreach ($length as $l) {
             if ($l === 'auto') {
