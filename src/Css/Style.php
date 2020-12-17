@@ -581,6 +581,10 @@ class Style
                 return $cache[$key];
             }
         }
+    
+        \Illuminate\Support\Facades\Log::error(json_encode([
+            '$length,'=> $length,
+        ]));
 
         $ret = 0;
         foreach ($length as $l) {
