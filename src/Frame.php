@@ -624,7 +624,7 @@ class Frame
             ],
             $cb['w']
         );
-    
+
         \Illuminate\Support\Facades\Log::debug(json_encode([
             '$x,'=> $x,
             '$y,'=> $y,
