@@ -6,11 +6,11 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Positioner;
+namespace Dompdf\Positioner;
 
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\FrameDecorator\AbstractFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\Inline as InlineFrameDecorator;
+use Dompdf\Exception;
+use Dompdf\FrameDecorator\AbstractFrameDecorator;
+use Dompdf\FrameDecorator\Inline as InlineFrameDecorator;
 
 /**
  * Positions inline frames.

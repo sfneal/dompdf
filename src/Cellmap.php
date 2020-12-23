@@ -6,10 +6,10 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf;
+namespace Dompdf;
 
-use Sfneal\Dompdf\FrameDecorator\Table as TableFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
+use Dompdf\FrameDecorator\Table as TableFrameDecorator;
+use Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
 
 /**
  * Maps table cells to the table grid.
@@ -430,24 +430,21 @@ class Cellmap
         $col = &$this->get_column($j);
         $col['used-width'] = $width;
         $next_col = &$this->get_column($j + 1);
-        $next_col['x'] = $next_col['x'] + $width;
+        $next_col['x'] = $col['x'] + $width;
     }
 
     /**
-     * @param int   $i
-     * @param mixed $height
+     * @param int  $i
+     * @param long $height
      */
     public function set_row_height($i, $height)
     {
         $row = &$this->get_row($i);
-
-        if ($row['height'] !== null && $height <= $row['height']) {
-            return;
+        if ($height > $row['height']) {
+            $row['height'] = $height;
         }
-
-        $row['height'] = $height;
         $next_row = &$this->get_row($i + 1);
-        $next_row['y'] = $row['y'] + $height;
+        $next_row['y'] = $row['y'] + $row['height'];
     }
 
     /**
@@ -643,12 +640,12 @@ class Cellmap
             $width = $style->width;
 
             $val = null;
-            if (Helpers::is_percent($width)) {
+            if (Helpers::is_percent($width) && $colspan === 1) {
                 $var = 'percent';
                 $val = (float) rtrim($width, '% ') / $colspan;
-            } elseif ($width !== 'auto') {
+            } elseif ($width !== 'auto' && $colspan === 1) {
                 $var = 'absolute';
-                $val = $style->length_in_pt($frame_min) / $colspan;
+                $val = $style->length_in_pt($frame_min);
             }
 
             $min = 0;
@@ -670,10 +667,10 @@ class Cellmap
                 $max += $col['max-width'];
             }
 
-            if ($frame_min > $min) {
+            if ($frame_min > $min && $colspan === 1) {
                 // The frame needs more space.  Expand each sub-column
                 // FIXME try to avoid putting this dummy value when table-layout:fixed
-                $inc = ($this->is_layout_fixed() ? 10e-10 : ($frame_min - $min) / $colspan);
+                $inc = ($this->is_layout_fixed() ? 10e-10 : ($frame_min - $min));
                 for ($c = 0; $c < $colspan; $c++) {
                     $col = &$this->get_column($this->__col + $c);
                     $col['min-width'] += $inc;

@@ -6,13 +6,13 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameDecorator;
+namespace Dompdf\FrameDecorator;
 
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\Helpers;
-use Sfneal\Dompdf\Renderer;
+use Dompdf\Css\Style;
+use Dompdf\Dompdf;
+use Dompdf\Frame;
+use Dompdf\Helpers;
+use Dompdf\Renderer;
 
 /**
  * Decorates frames for page layout.

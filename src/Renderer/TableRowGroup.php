@@ -6,9 +6,9 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Renderer;
+namespace Dompdf\Renderer;
 
-use Sfneal\Dompdf\Frame;
+use Dompdf\Frame;
 
 /**
  * Renders block frames.

@@ -7,12 +7,12 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameDecorator;
+namespace Dompdf\FrameDecorator;
 
 use DOMElement;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\Frame;
+use Dompdf\Dompdf;
+use Dompdf\Exception;
+use Dompdf\Frame;
 
 /**
  * Decorates frames for inline layout.

@@ -1,9 +1,9 @@
 <?php
 
-namespace Sfneal\Dompdf\Frame;
+namespace Dompdf\Frame;
 
+use Dompdf\Frame;
 use Iterator;
-use Sfneal\Dompdf\Frame;
 
 /**
  * Pre-order Iterator.

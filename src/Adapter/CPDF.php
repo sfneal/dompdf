@@ -11,15 +11,15 @@
 
 // FIXME: Need to sanity check inputs to this class
 
-namespace Sfneal\Dompdf\Adapter;
+namespace Dompdf\Adapter;
 
+use Dompdf\Canvas;
+use Dompdf\Dompdf;
+use Dompdf\Exception;
+use Dompdf\Helpers;
+use Dompdf\Image\Cache;
+use Dompdf\PhpEvaluator;
 use FontLib\Exception\FontNotFoundException;
-use Sfneal\Dompdf\Canvas;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\Helpers;
-use Sfneal\Dompdf\Image\Cache;
-use Sfneal\Dompdf\PhpEvaluator;
 
 /**
  * PDF rendering interface.
@@ -174,9 +174,9 @@ class CPDF implements Canvas
     /**
      * Class constructor.
      *
-     * @param mixed       $paper       The size of paper to use in this PDF ({@link CPDF::$PAPER_SIZES})
-     * @param string      $orientation The orientation of the document (either 'landscape' or 'portrait')
-     * @param Dompdf|null $dompdf      The Dompdf instance
+     * @param mixed  $paper       The size of paper to use in this PDF ({@link CPDF::$PAPER_SIZES})
+     * @param string $orientation The orientation of the document (either 'landscape' or 'portrait')
+     * @param Dompdf $dompdf      The Dompdf instance
      */
     public function __construct($paper = 'letter', $orientation = 'portrait', Dompdf $dompdf = null)
     {
@@ -192,9 +192,13 @@ class CPDF implements Canvas
             [$size[2], $size[3]] = [$size[3], $size[2]];
         }
 
-        $this->_dompdf = $dompdf;
+        if ($dompdf === null) {
+            $this->_dompdf = new Dompdf();
+        } else {
+            $this->_dompdf = $dompdf;
+        }
 
-        $this->_pdf = new \Sfneal\Dompdf\Cpdf(
+        $this->_pdf = new \Dompdf\Cpdf(
             $size,
             true,
             $dompdf->getOptions()->getFontCache(),
@@ -253,7 +257,7 @@ class CPDF implements Canvas
     /**
      * Returns the Cpdf instance.
      *
-     * @return CPDF|\Sfneal\Dompdf\Cpdf
+     * @return \Dompdf\Cpdf
      */
     public function get_cpdf()
     {
@@ -625,7 +629,7 @@ class CPDF implements Canvas
             if (!method_exists(Helpers::class, $func_name)) {
                 throw new Exception("Function $func_name() not found.  Cannot convert $type image: $image_url.  Please install the image PHP extension.");
             }
-            $func_name = '\\Sfneal\\DompdfHelpers::'.$func_name;
+            $func_name = '\\Dompdf\\Helpers::'.$func_name;
         }
 
         set_error_handler([Helpers::class, 'record_warnings']);

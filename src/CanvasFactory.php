@@ -6,7 +6,7 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf;
+namespace Dompdf;
 
 /**
  * Create canvas instances.
@@ -24,10 +24,10 @@ class CanvasFactory
     }
 
     /**
-     * @param Dompdf            $dompdf
-     * @param string|array|null $paper
-     * @param string|null       $orientation
-     * @param string|null       $class
+     * @param Dompdf       $dompdf
+     * @param string|array $paper
+     * @param string       $orientation
+     * @param string       $class
      *
      * @return Canvas
      */
@@ -41,12 +41,12 @@ class CanvasFactory
             if (($backend === 'auto' || $backend === 'pdflib') &&
                 class_exists('PDFLib', false)
             ) {
-                $class = 'Sfneal\\Dompdf\\Adapter\\PDFLib';
+                $class = 'Dompdf\\Adapter\\PDFLib';
             } else {
                 if ($backend === 'gd' && extension_loaded('gd')) {
-                    $class = 'Sfneal\\Dompdf\\Adapter\\GD';
+                    $class = 'Dompdf\\Adapter\\GD';
                 } else {
-                    $class = 'Sfneal\\Dompdf\\Adapter\\CPDF';
+                    $class = 'Dompdf\\Adapter\\CPDF';
                 }
             }
         }

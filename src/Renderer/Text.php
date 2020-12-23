@@ -8,10 +8,10 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Renderer;
+namespace Dompdf\Renderer;
 
-use Sfneal\Dompdf\Adapter\CPDF;
-use Sfneal\Dompdf\Frame;
+use Dompdf\Adapter\CPDF;
+use Dompdf\Frame;
 
 /**
  * Renders text frames.

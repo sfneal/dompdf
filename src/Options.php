@@ -1,6 +1,6 @@
 <?php
 
-namespace Sfneal\Dompdf;
+namespace Dompdf;
 
 class Options
 {
@@ -48,7 +48,8 @@ class Options
      * dompdf's "chroot".
      *
      * Prevents dompdf from accessing system files or other files on the webserver.
-     * All local files opened by dompdf must be in a subdirectory of this directory.
+     * All local files opened by dompdf must be in a subdirectory of this directory
+     * or array of directories.
      * DO NOT set it to '/' since this could allow an attacker to use dompdf to
      * read any files on the server.  This should be an absolute path.
      *
@@ -56,9 +57,9 @@ class Options
      * This setting may increase the risk of system exploit. Do not change
      * this settings without understanding the consequences. Additional
      * documentation is available on the dompdf wiki at:
-     * https://github.com/sfneal/dompdf/wiki
+     * https://github.com/dompdf/dompdf/wiki
      *
-     * @var string
+     * @var array
      */
     private $chroot;
 
@@ -86,7 +87,7 @@ class Options
      *
      * North America standard is "letter"; other countries generally "a4"
      *
-     * @see \Sfneal\Dompdf\Adapter\CPDF::PAPER_SIZES for valid sizes
+     * @see \Dompdf\Adapter\CPDF::PAPER_SIZES for valid sizes
      *
      * @var string
      */
@@ -155,7 +156,7 @@ class Options
      * This setting may increase the risk of system exploit. Do not change
      * this settings without understanding the consequences. Additional
      * documentation is available on the dompdf wiki at:
-     * https://github.com/sfneal/dompdf/wiki
+     * https://github.com/dompdf/dompdf/wiki
      *
      * @var bool
      */
@@ -177,7 +178,7 @@ class Options
      * This setting may increase the risk of system exploit. Do not change
      * this settings without understanding the consequences. Additional
      * documentation is available on the dompdf wiki at:
-     * https://github.com/sfneal/dompdf/wiki
+     * https://github.com/dompdf/dompdf/wiki
      *
      * @var bool
      */
@@ -252,7 +253,7 @@ class Options
      *
      * Valid settings are 'PDFLib', 'CPDF', 'GD', and 'auto'. 'auto' will
      * look for PDFLib and use it if found, or if not it will fall back on
-     * CPDF. 'GD' renders PDFs to graphic files. {@link Sfneal\Dompdf\CanvasFactory}
+     * CPDF. 'GD' renders PDFs to graphic files. {@link Dompdf\CanvasFactory}
      * ultimately determines which rendering class to instantiate
      * based on this setting.
      *
@@ -277,28 +278,15 @@ class Options
     private $pdflibLicense = '';
 
     /**
-     * @var string
-     *
-     * @deprecated
-     */
-    private $adminUsername = 'user';
-
-    /**
-     * @var string
-     *
-     * @deprecated
-     */
-    private $adminPassword = 'password';
-
-    /**
      * @param array $attributes
      */
     public function __construct(array $attributes = null)
     {
-        $this->setChroot(realpath(__DIR__.'/../'));
-        $this->setRootDir($this->getChroot());
+        $rootDir = realpath(__DIR__.'/../');
+        $this->setChroot([$rootDir]);
+        $this->setRootDir($rootDir);
         $this->setTempDir(sys_get_temp_dir());
-        $this->setFontDir($this->chroot.'/lib/fonts');
+        $this->setFontDir($rootDir.'/lib/fonts');
         $this->setFontCache($this->getFontDir());
         $this->setLogOutputFile($this->getTempDir().'/log.htm');
 
@@ -371,10 +359,6 @@ class Options
                 $this->setPdfBackend($value);
             } elseif ($key === 'pdflibLicense' || $key === 'pdflib_license') {
                 $this->setPdflibLicense($value);
-            } elseif ($key === 'adminUsername' || $key === 'admin_username') {
-                $this->setAdminUsername($value);
-            } elseif ($key === 'adminPassword' || $key === 'admin_password') {
-                $this->setAdminPassword($value);
             }
         }
 
@@ -440,53 +424,9 @@ class Options
             return $this->getPdfBackend();
         } elseif ($key === 'pdflibLicense' || $key === 'pdflib_license') {
             return $this->getPdflibLicense();
-        } elseif ($key === 'adminUsername' || $key === 'admin_username') {
-            return $this->getAdminUsername();
-        } elseif ($key === 'adminPassword' || $key === 'admin_password') {
-            return $this->getAdminPassword();
         }
 
         return null;
-    }
-
-    /**
-     * @param string $adminPassword
-     *
-     * @return $this
-     */
-    public function setAdminPassword($adminPassword)
-    {
-        $this->adminPassword = $adminPassword;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdminPassword()
-    {
-        return $this->adminPassword;
-    }
-
-    /**
-     * @param string $adminUsername
-     *
-     * @return $this
-     */
-    public function setAdminUsername($adminUsername)
-    {
-        $this->adminUsername = $adminUsername;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdminUsername()
-    {
-        return $this->adminUsername;
     }
 
     /**
@@ -530,19 +470,22 @@ class Options
     }
 
     /**
-     * @param string $chroot
+     * @param array|string $chroot
      *
      * @return $this
      */
-    public function setChroot($chroot)
+    public function setChroot($chroot, $delimiter = ',')
     {
+        if (is_string($chroot)) {
+            $chroot = explode($delimiter, $chroot);
+        }
         $this->chroot = $chroot;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function getChroot()
     {

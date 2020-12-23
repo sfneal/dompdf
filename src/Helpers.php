@@ -1,6 +1,6 @@
 <?php
 
-namespace Sfneal\Dompdf;
+namespace Dompdf;
 
 class Helpers
 {

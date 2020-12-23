@@ -6,10 +6,10 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameReflower;
+namespace Dompdf\FrameReflower;
 
-use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\Table as TableFrameDecorator;
+use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Dompdf\FrameDecorator\Table as TableFrameDecorator;
 
 /**
  * Reflows table cells.

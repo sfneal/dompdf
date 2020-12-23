@@ -6,9 +6,9 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Exception;
+namespace Dompdf\Exception;
 
-use Sfneal\Dompdf\Exception;
+use Dompdf\Exception;
 
 /**
  * Image exception thrown by DOMPDF.

@@ -7,12 +7,12 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Adapter;
+namespace Dompdf\Adapter;
 
-use Sfneal\Dompdf\Canvas;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Helpers;
-use Sfneal\Dompdf\Image\Cache;
+use Dompdf\Canvas;
+use Dompdf\Dompdf;
+use Dompdf\Helpers;
+use Dompdf\Image\Cache;
 
 /**
  * Image rendering interface.
@@ -137,7 +137,7 @@ class GD implements Canvas
      * @param float  $aa_factor   Anti-aliasing factor, 1 for no AA
      * @param array  $bg_color    Image background color: array(r,g,b,a), 0 <= r,g,b,a <= 1
      */
-    public function __construct($size = 'letter', $orientation = 'portrait', Dompdf $dompdf, $aa_factor = 1.0, $bg_color = [1, 1, 1, 0])
+    public function __construct($size = 'letter', $orientation = 'portrait', Dompdf $dompdf = null, $aa_factor = 1.0, $bg_color = [1, 1, 1, 0])
     {
         if (!is_array($size)) {
             $size = strtolower($size);
@@ -153,7 +153,11 @@ class GD implements Canvas
             list($size[2], $size[3]) = [$size[3], $size[2]];
         }
 
-        $this->_dompdf = $dompdf;
+        if ($dompdf === null) {
+            $this->_dompdf = new Dompdf();
+        } else {
+            $this->_dompdf = $dompdf;
+        }
 
         $this->dpi = $this->get_dompdf()->getOptions()->getDpi();
 
@@ -732,7 +736,7 @@ class GD implements Canvas
             if (!method_exists("Dompdf\Helpers", $func_name)) {
                 throw new \Exception("Function $func_name() not found.  Cannot convert $img_type image: $img_url.  Please install the image PHP extension.");
             }
-            $func_name = '\\Sfneal\\DompdfHelpers::'.$func_name;
+            $func_name = '\\Dompdf\\Helpers::'.$func_name;
         }
         $src = @call_user_func($func_name, $img_url);
 

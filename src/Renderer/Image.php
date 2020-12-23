@@ -7,10 +7,10 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Renderer;
+namespace Dompdf\Renderer;
 
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\Image\Cache;
+use Dompdf\Frame;
+use Dompdf\Image\Cache;
 
 /**
  * Image renderer.
@@ -126,9 +126,11 @@ class Image extends Block
         }
 
         if ($this->_dompdf->getOptions()->getDebugLayout() && $this->_dompdf->getOptions()->getDebugLayoutBlocks()) {
-            $this->_debug_layout($frame->get_border_box(), 'blue');
+            $debug_border_box = $frame->get_border_box();
+            $this->_debug_layout([$debug_border_box['x'], $debug_border_box['y'], (float) $debug_border_box['w'], (float) $debug_border_box['h']], 'blue');
             if ($this->_dompdf->getOptions()->getDebugLayoutPaddingBox()) {
-                $this->_debug_layout($frame->get_padding_box(), 'blue', [0.5, 0.5]);
+                $debug_padding_box = $frame->get_padding_box();
+                $this->_debug_layout([$debug_padding_box['x'], $debug_padding_box['y'], (float) $debug_padding_box['w'], (float) $debug_padding_box['h']], 'blue', [0.5, 0.5]);
             }
         }
 

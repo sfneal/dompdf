@@ -6,11 +6,11 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameDecorator;
+namespace Dompdf\FrameDecorator;
 
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Dompdf\Dompdf;
+use Dompdf\Frame;
+use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
 
 /**
  * Decorates table cells for layout.

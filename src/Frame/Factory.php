@@ -6,17 +6,17 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Frame;
+namespace Dompdf\Frame;
 
+use Dompdf\Css\Style;
+use Dompdf\Dompdf;
+use Dompdf\Exception;
+use Dompdf\Frame;
+use Dompdf\FrameDecorator\AbstractFrameDecorator;
+use Dompdf\FrameDecorator\Page as PageFrameDecorator;
+use Dompdf\FrameReflower\Page as PageFrameReflower;
+use Dompdf\Positioner\AbstractPositioner;
 use DOMXPath;
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\FrameDecorator\AbstractFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\Page as PageFrameDecorator;
-use Sfneal\Dompdf\FrameReflower\Page as PageFrameReflower;
-use Sfneal\Dompdf\Positioner\AbstractPositioner;
 
 /**
  * Contains frame decorating logic.
@@ -215,8 +215,8 @@ class Factory
             $reflower = 'Image';
         }
 
-        $decorator = "Sfneal\\Dompdf\\FrameDecorator\\$decorator";
-        $reflower = "Sfneal\\Dompdf\\FrameReflower\\$reflower";
+        $decorator = "Dompdf\\FrameDecorator\\$decorator";
+        $reflower = "Dompdf\\FrameReflower\\$reflower";
 
         /** @var AbstractFrameDecorator $deco */
         $deco = new $decorator($frame, $dompdf);
@@ -279,7 +279,7 @@ class Factory
     protected static function getPositionerInstance($type)
     {
         if (!isset(self::$_positioners[$type])) {
-            $class = '\\Sfneal\\Dompdf\\Positioner\\'.$type;
+            $class = '\\Dompdf\\Positioner\\'.$type;
             self::$_positioners[$type] = new $class();
         }
 

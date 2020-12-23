@@ -7,12 +7,12 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameDecorator;
+namespace Dompdf\FrameDecorator;
 
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\Helpers;
-use Sfneal\Dompdf\Image\Cache;
+use Dompdf\Dompdf;
+use Dompdf\Frame;
+use Dompdf\Helpers;
+use Dompdf\Image\Cache;
 
 /**
  * Decorates frames for list bullets with custom images.

@@ -8,11 +8,11 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameDecorator;
+namespace Dompdf\FrameDecorator;
 
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\Frame;
+use Dompdf\Dompdf;
+use Dompdf\Exception;
+use Dompdf\Frame;
 
 /**
  * Decorates Frame objects for text layout.
@@ -172,6 +172,9 @@ class Text extends AbstractFrameDecorator
         }
 
         $split = $this->_frame->get_node()->splitText($offset);
+        if ($split === false) {
+            return null;
+        }
 
         $deco = $this->copy($split);
 

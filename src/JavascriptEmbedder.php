@@ -6,7 +6,7 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf;
+namespace Dompdf;
 
 /**
  * Embeds Javascript into the PDF document.

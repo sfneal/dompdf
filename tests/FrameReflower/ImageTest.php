@@ -1,14 +1,14 @@
 <?php
 
-namespace Sfneal\Dompdf\Tests\FrameReflower;
+namespace Dompdf\Tests\FrameReflower;
 
+use Dompdf\Css\Style;
+use Dompdf\Css\Stylesheet;
+use Dompdf\Dompdf;
+use Dompdf\FrameDecorator\Image as ImageFrameDecorator;
+use Dompdf\FrameReflower\Image;
+use Dompdf\Tests\TestCase;
 use Mockery;
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Css\Stylesheet;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\FrameDecorator\Image as ImageFrameDecorator;
-use Sfneal\Dompdf\FrameReflower\Image;
-use Sfneal\Dompdf\Tests\TestCase;
 
 class ImageTest extends TestCase
 {

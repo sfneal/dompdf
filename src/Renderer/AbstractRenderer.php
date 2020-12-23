@@ -8,15 +8,15 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Renderer;
+namespace Dompdf\Renderer;
 
-use Sfneal\Dompdf\Adapter\CPDF;
-use Sfneal\Dompdf\Css\Color;
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\Helpers;
-use Sfneal\Dompdf\Image\Cache;
+use Dompdf\Adapter\CPDF;
+use Dompdf\Css\Color;
+use Dompdf\Css\Style;
+use Dompdf\Dompdf;
+use Dompdf\Frame;
+use Dompdf\Helpers;
+use Dompdf\Image\Cache;
 
 /**
  * Base renderer class.
@@ -416,7 +416,7 @@ abstract class AbstractRenderer
         //don't create temp file, but place gd object directly into the pdf
         if (!$is_png && $this->_canvas instanceof CPDF) {
             // Note: CPDF_Adapter image converts y position
-            $this->_canvas->get_cpdf()->addImagePng($filedummy, $x, $this->_canvas->get_height() - $y - $height, $width, $height, $bg);
+            $this->_canvas->get_cpdf()->addImagePng($bg, $filedummy, $x, $this->_canvas->get_height() - $y - $height, $width, $height);
         } else {
             $tmp_dir = $this->_dompdf->getOptions()->getTempDir();
             $tmp_name = @tempnam($tmp_dir, 'bg_dompdf_img_');
@@ -840,7 +840,7 @@ abstract class AbstractRenderer
      *
      * @var
      */
-    protected function _border_line($x, $y, $length, $color, $widths, $side, $corner_style = 'bevel', $pattern_name = null, $r1 = 0, $r2 = 0)
+    protected function _border_line($x, $y, $length, $color, $widths, $side, $corner_style = 'bevel', $pattern_name = 'none', $r1 = 0, $r2 = 0)
     {
         /** used by $$side */
         list($top, $right, $bottom, $left) = $widths;

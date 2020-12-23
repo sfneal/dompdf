@@ -7,14 +7,14 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Adapter;
+namespace Dompdf\Adapter;
 
-use Sfneal\Dompdf\Canvas;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\Helpers;
-use Sfneal\Dompdf\Image\Cache;
-use Sfneal\Dompdf\PhpEvaluator;
+use Dompdf\Canvas;
+use Dompdf\Dompdf;
+use Dompdf\Exception;
+use Dompdf\Helpers;
+use Dompdf\Image\Cache;
+use Dompdf\PhpEvaluator;
 
 /**
  * PDF rendering interface.
@@ -201,7 +201,7 @@ class PDFLib implements Canvas
      * @param string       $orientation The orientation of the document (either 'landscape' or 'portrait')
      * @param Dompdf       $dompdf
      */
-    public function __construct($paper = 'letter', $orientation = 'portrait', Dompdf $dompdf)
+    public function __construct($paper = 'letter', $orientation = 'portrait', Dompdf $dompdf = null)
     {
         if (is_array($paper)) {
             $size = $paper;
@@ -218,7 +218,11 @@ class PDFLib implements Canvas
         $this->_width = $size[2] - $size[0];
         $this->_height = $size[3] - $size[1];
 
-        $this->_dompdf = $dompdf;
+        if ($dompdf === null) {
+            $this->_dompdf = new Dompdf();
+        } else {
+            $this->_dompdf = $dompdf;
+        }
 
         $this->_pdf = new \PDFLib();
 

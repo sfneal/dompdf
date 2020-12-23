@@ -7,12 +7,11 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameReflower;
+namespace Dompdf\FrameReflower;
 
-use Sfneal\Dompdf\Canvas;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\Page as PageFrameDecorator;
+use Dompdf\Frame;
+use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Dompdf\FrameDecorator\Page as PageFrameDecorator;
 
 /**
  * Reflows pages.
@@ -29,7 +28,7 @@ class Page extends AbstractFrameReflower
     /**
      * Cache of the canvas.
      *
-     * @var Canvas
+     * @var \Dompdf\Canvas
      */
     private $_canvas;
 

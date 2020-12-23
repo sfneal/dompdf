@@ -6,10 +6,10 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Renderer;
+namespace Dompdf\Renderer;
 
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\FrameDecorator\Table;
+use Dompdf\Frame;
+use Dompdf\FrameDecorator\Table;
 
 /**
  * Renders table cells.

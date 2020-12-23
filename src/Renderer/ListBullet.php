@@ -7,12 +7,12 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Renderer;
+namespace Dompdf\Renderer;
 
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\FrameDecorator\ListBullet as ListBulletFrameDecorator;
-use Sfneal\Dompdf\Helpers;
-use Sfneal\Dompdf\Image\Cache;
+use Dompdf\Frame;
+use Dompdf\FrameDecorator\ListBullet as ListBulletFrameDecorator;
+use Dompdf\Helpers;
+use Dompdf\Image\Cache;
 
 /**
  * Renders list bullets.

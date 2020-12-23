@@ -8,15 +8,15 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Css;
+namespace Dompdf\Css;
 
 use DOMElement;
+use Dompdf\Dompdf;
+use Dompdf\Exception;
+use Dompdf\FontMetrics;
+use Dompdf\Frame\FrameTree;
+use Dompdf\Helpers;
 use DOMXPath;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\FontMetrics;
-use Sfneal\Dompdf\Frame\FrameTree;
-use Sfneal\Dompdf\Helpers;
 
 /**
  * The master stylesheet class.
@@ -362,11 +362,7 @@ class Stylesheet
 
             list($this->_protocol, $this->_base_host, $this->_base_path, $filename) = $parsed_url;
 
-            if ($this->_protocol == '') {
-                $file = $this->_base_path.$filename;
-            } else {
-                $file = Helpers::build_url($this->_protocol, $this->_base_host, $this->_base_path, $filename);
-            }
+            $file = Helpers::build_url($this->_protocol, $this->_base_host, $this->_base_path, $filename);
 
             $options = $this->_dompdf->getOptions();
             // Download the remote file
@@ -380,9 +376,20 @@ class Stylesheet
 
                 $rootDir = realpath($options->getRootDir());
                 if (strpos($realfile, $rootDir) !== 0) {
-                    $chroot = realpath($options->getChroot());
-                    if (!$chroot || strpos($realfile, $chroot) !== 0) {
-                        Helpers::record_warnings(E_USER_WARNING, "Permission denied on $file. The file could not be found under the directory specified by Options::chroot.", __FILE__, __LINE__);
+                    $chroot = $options->getChroot();
+                    $chrootError = false;
+                    if (!is_array($chroot) || count($chroot) < 1) {
+                        $chrootError = true;
+                    } else {
+                        foreach ($chroot as $chrootPath) {
+                            $chrootPath = realpath($chrootPath);
+                            if ($chrootPath === false || strpos($realfile, $chrootPath) !== 0) {
+                                $chrootError = true;
+                            }
+                        }
+                    }
+                    if ($chrootError) {
+                        Helpers::record_warnings(E_USER_WARNING, "Permission denied on $file. The file could not be found under the directory's specified by Options::chroot.", __FILE__, __LINE__);
 
                         return;
                     }
@@ -1432,41 +1439,33 @@ class Stylesheet
         $DEBUGCSS = $this->_dompdf->getOptions()->getDebugCss();
         $parsed_url = 'none';
 
-        if (mb_strpos($val, 'url') === false) {
+        if (empty($val) || $val === 'none') {
+            $path = 'none';
+        } elseif (mb_strpos($val, 'url') === false) {
             $path = 'none'; //Don't resolve no image -> otherwise would prefix path and no longer recognize as none
         } else {
             $val = preg_replace("/url\(\s*['\"]?([^'\")]+)['\"]?\s*\)/", '\\1', trim($val));
 
             // Resolve the url now in the context of the current stylesheet
             $parsed_url = Helpers::explode_url($val);
-            if ($parsed_url['protocol'] == '' && $this->get_protocol() == '') {
-                if ($parsed_url['path'][0] === '/' || $parsed_url['path'][0] === '\\') {
-                    $path = $_SERVER['DOCUMENT_ROOT'].'/';
-                } else {
-                    $path = $this->get_base_path();
-                }
-
-                $path .= $parsed_url['path'].$parsed_url['file'];
+            $path = Helpers::build_url(
+                $this->_stylesheet->get_protocol(),
+                $this->_base_host,
+                $this->_base_path,
+                $val
+            );
+            if (($parsed_url['protocol'] == '' || $parsed_url['protocol'] == 'file://') && ($this->_protocol == '' || $this->_protocol == 'file://')) {
                 $path = realpath($path);
                 // If realpath returns FALSE then specifically state that there is no background image
-                // FIXME: Is this causing problems for imported CSS files? There are some './none' references when running the test cases.
                 if (!$path) {
                     $path = 'none';
                 }
-            } else {
-                $path = Helpers::build_url(
-                    $this->get_protocol(),
-                    $this->get_host(),
-                    $this->get_base_path(),
-                    $val
-                );
             }
         }
-
         if ($DEBUGCSS) {
             echo "<pre>[_image\n";
             print_r($parsed_url);
-            echo $this->get_protocol()."\n".$this->get_base_path()."\n".$path."\n";
+            echo $this->_protocol."\n".$this->_base_path."\n".$path."\n";
             echo '_image]</pre>';
         }
 
@@ -1613,7 +1612,7 @@ class Stylesheet
             $prop = trim($prop);
             */
             if ($DEBUGCSS) {
-                echo '(';
+                print '(';
             }
 
             $important = false;
@@ -1630,7 +1629,7 @@ class Stylesheet
 
             if ($prop === '') {
                 if ($DEBUGCSS) {
-                    echo 'empty)';
+                    print 'empty)';
                 }
                 continue;
             }
@@ -1638,7 +1637,7 @@ class Stylesheet
             $i = mb_strpos($prop, ':');
             if ($i === false) {
                 if ($DEBUGCSS) {
-                    echo 'novalue'.$prop.')';
+                    print 'novalue'.$prop.')';
                 }
                 continue;
             }
@@ -1646,7 +1645,7 @@ class Stylesheet
             $prop_name = rtrim(mb_strtolower(mb_substr($prop, 0, $i)));
             $value = ltrim(mb_substr($prop, $i + 1));
             if ($DEBUGCSS) {
-                echo $prop_name.':='.$value.($important ? '!IMPORTANT' : '').')';
+                print $prop_name.':='.$value.($important ? '!IMPORTANT' : '').')';
             }
             //New style, anyway empty
             //if ($important || !$style->important_get($prop_name) ) {
@@ -1661,7 +1660,7 @@ class Stylesheet
             $style->$prop_name = $value;
         }
         if ($DEBUGCSS) {
-            echo '_parse_properties]';
+            print '_parse_properties]';
         }
 
         return $style;
@@ -1685,7 +1684,7 @@ class Stylesheet
 
         $sections = explode('}', $str);
         if ($DEBUGCSS) {
-            echo '[_parse_sections';
+            print '[_parse_sections';
         }
         foreach ($sections as $sect) {
             $i = mb_strpos($sect, '{');
@@ -1696,7 +1695,7 @@ class Stylesheet
             //$selectors = explode(",", mb_substr($sect, 0, $i));
             $selectors = preg_split("/,(?![^\(]*\))/", mb_substr($sect, 0, $i), 0, PREG_SPLIT_NO_EMPTY);
             if ($DEBUGCSS) {
-                echo '[section';
+                print '[section';
             }
 
             $style = $this->_parse_properties(trim(mb_substr($sect, $i + 1)));
@@ -1707,12 +1706,12 @@ class Stylesheet
 
                 if ($selector == '') {
                     if ($DEBUGCSS) {
-                        echo '#empty#';
+                        print '#empty#';
                     }
                     continue;
                 }
                 if ($DEBUGCSS) {
-                    echo '#'.$selector.'#';
+                    print '#'.$selector.'#';
                 }
                 //if ($DEBUGCSS) { if (strpos($selector,'p') !== false) print '!!!p!!!#'; }
 

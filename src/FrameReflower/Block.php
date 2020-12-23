@@ -7,14 +7,14 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameReflower;
+namespace Dompdf\FrameReflower;
 
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\Text as TextFrameDecorator;
+use Dompdf\Css\Style;
+use Dompdf\Exception;
+use Dompdf\Frame;
+use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
+use Dompdf\FrameDecorator\Text as TextFrameDecorator;
 
 /**
  * Reflows block frames.
@@ -374,7 +374,7 @@ class Block extends AbstractFrameReflower
             }
         } else {
             // Expand the height if overflow is visible
-            if ($height === 'auto' && $content_height > $height /* && $style->overflow === "visible" */) {
+            if ($height === 'auto' && $content_height > 0 /* && $style->overflow === "visible" */) {
                 $height = $content_height;
             }
 
@@ -403,16 +403,16 @@ class Block extends AbstractFrameReflower
                     }
                 }
 
-                if ($max_height !== 'none' && $min_height > $max_height) {
+                if ($max_height !== 'none' && $max_height !== 'auto' && (float) $min_height > (float) $max_height) {
                     // Swap 'em
                     list($max_height, $min_height) = [$min_height, $max_height];
                 }
 
-                if ($max_height !== 'none' && $height > $max_height) {
+                if ($max_height !== 'none' && $max_height !== 'auto' && $height > (float) $max_height) {
                     $height = $max_height;
                 }
 
-                if ($height < $min_height) {
+                if ($height < (float) $min_height) {
                     $height = $min_height;
                 }
             }

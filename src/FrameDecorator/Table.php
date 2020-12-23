@@ -6,13 +6,13 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameDecorator;
+namespace Dompdf\FrameDecorator;
 
 use DOMNode;
-use Sfneal\Dompdf\Cellmap;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\Frame\Factory;
+use Dompdf\Cellmap;
+use Dompdf\Dompdf;
+use Dompdf\Frame;
+use Dompdf\Frame\Factory;
 
 /**
  * Decorates Frames for table layout.

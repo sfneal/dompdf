@@ -7,9 +7,9 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Css;
+namespace Dompdf\Css;
 
-use Sfneal\Dompdf\Frame;
+use Dompdf\Frame;
 
 /**
  * Translates HTML 4.0 attributes into CSS rules.

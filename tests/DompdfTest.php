@@ -1,26 +1,26 @@
 <?php
 
-namespace Sfneal\Dompdf\Tests;
+namespace Dompdf\Tests;
 
 use DOMDocument;
-use Sfneal\Dompdf\Css\Stylesheet;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Frame\FrameTree;
-use Sfneal\Dompdf\Options;
+use Dompdf\Css\Stylesheet;
+use Dompdf\Dompdf;
+use Dompdf\Frame\FrameTree;
+use Dompdf\Options;
 
 class DompdfTest extends TestCase
 {
     public function testConstructor()
     {
         $dompdf = new Dompdf();
-        $this->assertInstanceOf('Sfneal\Dompdf\Adapter\Cpdf', $dompdf->getCanvas());
+        $this->assertInstanceOf('Dompdf\Adapter\Cpdf', $dompdf->getCanvas());
         $this->assertEquals('', $dompdf->getBaseHost());
         $this->assertEquals('', $dompdf->getBasePath());
-//        $this->assertInternalType('array', $dompdf->getCallbacks());
-        $this->assertInstanceOf('Sfneal\Dompdf\Css\Stylesheet', $dompdf->getCss());
+        $this->assertIsArray($dompdf->getCallbacks());
+        $this->assertInstanceOf('Dompdf\Css\Stylesheet', $dompdf->getCss());
         $this->assertNull($dompdf->getDom());
         $this->assertNull($dompdf->getHttpContext());
-        $this->assertInstanceOf('Sfneal\Dompdf\Options', $dompdf->getOptions());
+        $this->assertInstanceOf('Dompdf\Options', $dompdf->getOptions());
         $this->assertNull($dompdf->getProtocol());
         $this->assertFalse($dompdf->getQuirksmode());
         $this->assertNull($dompdf->getTree());
@@ -42,12 +42,12 @@ class DompdfTest extends TestCase
         $this->assertEquals('test1', $dompdf->getBaseHost());
         $this->assertEquals('test2', $dompdf->getBasePath());
         $this->assertCount(1, $dompdf->getCallbacks());
-        $this->assertInstanceOf('Sfneal\Dompdf\Css\Stylesheet', $dompdf->getCss());
+        $this->assertInstanceOf('Dompdf\Css\Stylesheet', $dompdf->getCss());
         $this->assertInstanceOf('DOMDocument', $dompdf->getDom());
-//        $this->assertInternalType('resource', $dompdf->getHttpContext());
-        $this->assertInstanceOf('Sfneal\Dompdf\Options', $dompdf->getOptions());
+        $this->assertIsResource($dompdf->getHttpContext());
+        $this->assertInstanceOf('Dompdf\Options', $dompdf->getOptions());
         $this->assertEquals('test3', $dompdf->getProtocol());
-        $this->assertInstanceOf('Sfneal\Dompdf\Frame\FrameTree', $dompdf->getTree());
+        $this->assertInstanceOf('Dompdf\Frame\FrameTree', $dompdf->getTree());
     }
 
     public function testLoadHtml()
@@ -94,6 +94,6 @@ class DompdfTest extends TestCase
         $dompdf->render();
 
         $this->assertEquals('one', $text_frame_contents[0]);
-        $this->assertEquals('- two', $text_frame_contents[1]);
+        $this->assertEquals(' - two', $text_frame_contents[1]);
     }
 }

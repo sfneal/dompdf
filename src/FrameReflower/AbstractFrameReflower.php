@@ -6,15 +6,15 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameReflower;
+namespace Dompdf\FrameReflower;
 
-use Sfneal\Dompdf\Adapter\CPDF;
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\Frame\Factory;
-use Sfneal\Dompdf\FrameDecorator\Block;
-use Sfneal\Dompdf\Helpers;
+use Dompdf\Adapter\CPDF;
+use Dompdf\Css\Style;
+use Dompdf\Dompdf;
+use Dompdf\Frame;
+use Dompdf\Frame\Factory;
+use Dompdf\FrameDecorator\Block;
+use Dompdf\Helpers;
 
 /**
  * Base reflower class.

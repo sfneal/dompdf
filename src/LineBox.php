@@ -6,10 +6,10 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf;
+namespace Dompdf;
 
-use Sfneal\Dompdf\FrameDecorator\Block;
-use Sfneal\Dompdf\FrameDecorator\Page;
+use Dompdf\FrameDecorator\Block;
+use Dompdf\FrameDecorator\Page;
 
 /**
  * The line box class.

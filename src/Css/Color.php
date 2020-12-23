@@ -8,9 +8,9 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Css;
+namespace Dompdf\Css;
 
-use Sfneal\Dompdf\Helpers;
+use Dompdf\Helpers;
 
 class Color
 {
@@ -184,6 +184,7 @@ class Color
         static $cache = [];
 
         $color = strtolower($color);
+        $alpha = 1.0;
 
         if (isset($cache[$color])) {
             return $cache[$color];
@@ -204,7 +205,9 @@ class Color
             return $cache[$color] = self::getArray($color[1].$color[1].$color[2].$color[2].$color[3].$color[3]);
         } // #rgba format
         elseif ($length == 5 && $color[0] === '#') {
-            $alpha = round(hexdec($color[4].$color[4]) / 255, 2);
+            if (ctype_xdigit($color[4])) {
+                $alpha = round(hexdec($color[4].$color[4]) / 255, 2);
+            }
 
             return $cache[$color] = self::getArray($color[1].$color[1].$color[2].$color[2].$color[3].$color[3], $alpha);
         } // #rrggbb format
@@ -212,7 +215,9 @@ class Color
             return $cache[$color] = self::getArray(mb_substr($color, 1, 6));
         } // #rrggbbaa format
         elseif ($length == 9 && $color[0] === '#') {
-            $alpha = round(hexdec(mb_substr($color, 7, 2)) / 255, 2);
+            if (ctype_xdigit(mb_substr($color, 7, 2))) {
+                $alpha = round(hexdec(mb_substr($color, 7, 2)) / 255, 2);
+            }
 
             return $cache[$color] = self::getArray(mb_substr($color, 1, 6), $alpha);
         } // rgb( r,g,b ) / rgba( r,g,b,α ) format
@@ -229,7 +234,6 @@ class Color
 
             // alpha transparency
             // FIXME: not currently using transparency
-            $alpha = 1.0;
             if (count($triplet) == 4) {
                 $alpha = (trim(array_pop($triplet)));
                 if (Helpers::is_percent($alpha)) {

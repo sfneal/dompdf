@@ -1,9 +1,9 @@
 <?php
 
-namespace Sfneal\Dompdf\Frame;
+namespace Dompdf\Frame;
 
+use Dompdf\Frame;
 use IteratorAggregate;
-use Sfneal\Dompdf\Frame;
 
 /**
  * Linked-list IteratorAggregate.

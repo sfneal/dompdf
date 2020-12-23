@@ -6,10 +6,10 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\FrameReflower;
+namespace Dompdf\FrameReflower;
 
-use Sfneal\Dompdf\FrameDecorator\Block as BlockFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\Table as TableFrameDecorator;
+use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
+use Dompdf\FrameDecorator\Table as TableFrameDecorator;
 
 /**
  * Reflows tables.
@@ -341,16 +341,16 @@ class Table extends AbstractFrameReflower
                 }
             }
 
-            if ($max_height !== 'none' && $min_height > $max_height) {
+            if ($max_height !== 'none' && $max_height !== 'auto' && (float) $min_height > (float) $max_height) {
                 // Swap 'em
                 list($max_height, $min_height) = [$min_height, $max_height];
             }
 
-            if ($max_height !== 'none' && $height > $max_height) {
+            if ($max_height !== 'none' && $max_height !== 'auto' && $height > (float) $max_height) {
                 $height = $max_height;
             }
 
-            if ($height < $min_height) {
+            if ($height < (float) $min_height) {
                 $height = $min_height;
             }
         } else {

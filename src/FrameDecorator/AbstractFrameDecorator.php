@@ -1,19 +1,19 @@
 <?php
 
-namespace Sfneal\Dompdf\FrameDecorator;
+namespace Dompdf\FrameDecorator;
 
 use DOMElement;
 use DOMNode;
+use Dompdf\Css\Style;
+use Dompdf\Dompdf;
+use Dompdf\Exception;
+use Dompdf\Frame;
+use Dompdf\Frame\Factory;
+use Dompdf\Frame\FrameTreeList;
+use Dompdf\FrameReflower\AbstractFrameReflower;
+use Dompdf\Helpers;
+use Dompdf\Positioner\AbstractPositioner;
 use DOMText;
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Exception;
-use Sfneal\Dompdf\Frame;
-use Sfneal\Dompdf\Frame\Factory;
-use Sfneal\Dompdf\Frame\FrameTreeList;
-use Sfneal\Dompdf\FrameReflower\AbstractFrameReflower;
-use Sfneal\Dompdf\Helpers;
-use Sfneal\Dompdf\Positioner\AbstractPositioner;
 
 /**
  * @link    http://dompdf.github.com/
