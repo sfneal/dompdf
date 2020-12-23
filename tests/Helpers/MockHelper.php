@@ -1,11 +1,11 @@
 <?php
 
-namespace Sfneal\Dompdf\Tests\Helpers;
+namespace Dompdf\Tests\Helpers;
 
 use Mockery\MockInterface;
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Css\Stylesheet;
-use Sfneal\Dompdf\Dompdf;
+use Dompdf\Css\Style;
+use Dompdf\Css\Stylesheet;
+use Dompdf\Dompdf;
 
 class MockHelper
 {

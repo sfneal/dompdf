@@ -6,10 +6,10 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Positioner;
+namespace Dompdf\Positioner;
 
-use Sfneal\Dompdf\FrameDecorator\AbstractFrameDecorator;
-use Sfneal\Dompdf\FrameDecorator\Table;
+use Dompdf\FrameDecorator\AbstractFrameDecorator;
+use Dompdf\FrameDecorator\Table;
 
 /**
  * Positions table cells.

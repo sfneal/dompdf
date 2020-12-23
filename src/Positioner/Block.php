@@ -6,9 +6,9 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf\Positioner;
+namespace Dompdf\Positioner;
 
-use Sfneal\Dompdf\FrameDecorator\AbstractFrameDecorator;
+use Dompdf\FrameDecorator\AbstractFrameDecorator;
 
 /**
  * Positions block frames.

@@ -158,7 +158,7 @@ Just pass your HTML in to dompdf and stream the output:
 
 ```php
 // reference the Dompdf namespace
-use Sfneal\Dompdf\Dompdf;
+use Dompdf\Dompdf;
 
 // instantiate and use the dompdf class
 $dompdf = new Dompdf();
@@ -179,8 +179,8 @@ $dompdf->stream();
 Set options during dompdf instantiation:
 
 ```php
-use Sfneal\Dompdf\Dompdf;
-use Sfneal\Dompdf\Options;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 $options = new Options();
 $options->set('defaultFont', 'Courier');
@@ -190,7 +190,7 @@ $dompdf = new Dompdf($options);
 or at run time
 
 ```php
-use Sfneal\Dompdf\Dompdf;
+use Dompdf\Dompdf;
 
 $dompdf = new Dompdf();
 $options = $dompdf->getOptions();

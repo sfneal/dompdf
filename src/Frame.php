@@ -1,9 +1,9 @@
 <?php
 
-namespace Sfneal\Dompdf;
+namespace Dompdf;
 
-use Sfneal\Dompdf\Css\Style;
-use Sfneal\Dompdf\Frame\FrameList;
+use Dompdf\Css\Style;
+use Dompdf\Frame\FrameList;
 
 /**
  * @link    http://dompdf.github.com/

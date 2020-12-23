@@ -7,12 +7,12 @@
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
-namespace Sfneal\Dompdf;
+namespace Dompdf;
 
 /**
  * Main rendering interface.
  *
- * Currently {@link Sfneal\Dompdf\Adapter\CPDF}, {@link Sfneal\Dompdf\Adapter\PDFLib}, and {@link Sfneal\Dompdf\Adapter\GD}
+ * Currently {@link \Dompdf\Adapter\CPDF}, {@link \Dompdf\Adapter\PDFLib}, and {@link \Dompdf\Adapter\GD}
  * implement this interface.
  *
  * Implementations should measure x and y increasing to the left and down,
