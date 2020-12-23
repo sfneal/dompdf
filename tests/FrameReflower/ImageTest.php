@@ -5,8 +5,8 @@ namespace Dompdf\Tests\FrameReflower;
 use Dompdf\Css\Style;
 use Dompdf\Css\Stylesheet;
 use Dompdf\Dompdf;
-use Dompdf\FrameReflower\Image;
 use Dompdf\FrameDecorator\Image as ImageFrameDecorator;
+use Dompdf\FrameReflower\Image;
 use Dompdf\Tests\TestCase;
 use Mockery;
 
@@ -23,8 +23,8 @@ class ImageTest extends TestCase
 
         $expectedWidth = 1966.08;
 
-        $this->assertEquals($expectedWidth . 'pt', $style->width);
-        $this->assertEquals('1474.56' . 'pt', $style->height);
+        $this->assertEquals($expectedWidth.'pt', $style->width);
+        $this->assertEquals('1474.56'.'pt', $style->height);
 
         $this->assertEquals([$expectedWidth, $expectedWidth, 'min' => $expectedWidth, 'max' => $expectedWidth], $result);
     }
@@ -40,8 +40,8 @@ class ImageTest extends TestCase
 
         $expectedWidth = 75;
 
-        $this->assertEquals($expectedWidth . 'pt', $style->width);
-        $this->assertEquals('150' . 'pt', $style->height);
+        $this->assertEquals($expectedWidth.'pt', $style->width);
+        $this->assertEquals('150'.'pt', $style->height);
 
         $this->assertEquals([$expectedWidth, $expectedWidth, 'min' => $expectedWidth, 'max' => $expectedWidth], $result);
     }
@@ -60,9 +60,9 @@ class ImageTest extends TestCase
         $expectedWidth = 75;
 
         // 400px * 0.75 (dpi) * 0.50 (imageFrame) * 0.50 (rootFrame)
-        $this->assertEquals($expectedWidth . 'pt', $style->width);
+        $this->assertEquals($expectedWidth.'pt', $style->width);
         // 800px * 0.75 (dpi) * 0.75 (imageFrame) * 0.75 (rootFrame)
-        $this->assertEquals('337.5' . 'pt', $style->height);
+        $this->assertEquals('337.5'.'pt', $style->height);
 
         $this->assertEquals([$expectedWidth, $expectedWidth, 'min' => $expectedWidth, 'max' => $expectedWidth], $result);
     }
@@ -78,8 +78,8 @@ class ImageTest extends TestCase
 
         $expectedWidth = 0;
 
-        $this->assertEquals($expectedWidth . 'pt', $style->width);
-        $this->assertEquals(0 . 'pt', $style->height);
+        $this->assertEquals($expectedWidth.'pt', $style->width);
+        $this->assertEquals(0 .'pt', $style->height);
 
         $this->assertEquals([$expectedWidth, $expectedWidth, 'min' => $expectedWidth, 'max' => $expectedWidth], $result);
     }
@@ -88,10 +88,10 @@ class ImageTest extends TestCase
     {
         $frame = $this->getImageMock(
             [
-                'width' => '100px',
-                'height' => '1200px',
-                'min_width' => '400px',
-                'max_width' => '800px',
+                'width'      => '100px',
+                'height'     => '1200px',
+                'min_width'  => '400px',
+                'max_width'  => '800px',
                 'min_height' => '300px',
                 'max_height' => '500px',
             ]
@@ -101,7 +101,6 @@ class ImageTest extends TestCase
         $result = $image->get_min_max_width();
 
         $style = $frame->get_style();
-
 
         $this->assertEquals('300pt', $style->width);
         $this->assertEquals('375pt', $style->height);
@@ -128,11 +127,11 @@ class ImageTest extends TestCase
             ImageFrameDecorator::class,
             [
                 'get_dompdf->getOptions->getDebugPng' => false,
-                'get_style' => $style,
-                'get_parent' => $parentFrame,
-                'get_dompdf->getOptions->getDpi' => 75,
-                'get_image_url' => dirname(__DIR__) . '/_files/jamaica.jpg',
-                'get_dompdf->getHttpContext' => null
+                'get_style'                           => $style,
+                'get_parent'                          => $parentFrame,
+                'get_dompdf->getOptions->getDpi'      => 75,
+                'get_image_url'                       => dirname(__DIR__).'/_files/jamaica.jpg',
+                'get_dompdf->getHttpContext'          => null,
             ]
         );
 

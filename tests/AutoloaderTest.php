@@ -1,7 +1,7 @@
 <?php
+
 namespace Dompdf\Tests;
 
-use Dompdf\Tests\TestCase;
 use Dompdf\Autoloader;
 
 class AutoloaderTest extends TestCase

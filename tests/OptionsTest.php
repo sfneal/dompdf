@@ -1,8 +1,8 @@
 <?php
+
 namespace Dompdf\Tests;
 
 use Dompdf\Options;
-use Dompdf\Tests\TestCase;
 
 class OptionsTest extends TestCase
 {
@@ -11,10 +11,10 @@ class OptionsTest extends TestCase
         $root = realpath(dirname(__DIR__));
         $option = new Options();
         $this->assertEquals(sys_get_temp_dir(), $option->getTempDir());
-        $this->assertEquals($root . '/lib/fonts', $option->getFontDir());
-        $this->assertEquals($root . '/lib/fonts', $option->getFontCache());
+        $this->assertEquals($root.'/lib/fonts', $option->getFontDir());
+        $this->assertEquals($root.'/lib/fonts', $option->getFontCache());
         $this->assertEquals([$root], $option->getChroot());
-        $this->assertEquals(sys_get_temp_dir() . "/log.htm", $option->getLogOutputFile());
+        $this->assertEquals(sys_get_temp_dir().'/log.htm', $option->getLogOutputFile());
         $this->assertEquals('screen', $option->getDefaultMediaType());
         $this->assertEquals('letter', $option->getDefaultPaperSize());
         $this->assertEquals('serif', $option->getDefaultFont());
@@ -42,34 +42,34 @@ class OptionsTest extends TestCase
     {
         $option = new Options();
         $option->set([
-            'tempDir' => 'test1',
-            'fontDir' => 'test2',
-            'fontCache' => 'test3',
-            'chroot' => 'test4,test4a',
-            'logOutputFile' => 'test5',
-            'defaultMediaType' => 'test6',
-            'defaultPaperSize' => 'test7',
-            'defaultFont' => 'test8',
-            'dpi' => 300,
-            'fontHeightRatio' => 1.2,
-            'isPhpEnabled' => true,
-            'isRemoteEnabled' => true,
-            'isJavascriptEnabled' => false,
-            'isHtml5ParserEnabled' => true,
+            'tempDir'                 => 'test1',
+            'fontDir'                 => 'test2',
+            'fontCache'               => 'test3',
+            'chroot'                  => 'test4,test4a',
+            'logOutputFile'           => 'test5',
+            'defaultMediaType'        => 'test6',
+            'defaultPaperSize'        => 'test7',
+            'defaultFont'             => 'test8',
+            'dpi'                     => 300,
+            'fontHeightRatio'         => 1.2,
+            'isPhpEnabled'            => true,
+            'isRemoteEnabled'         => true,
+            'isJavascriptEnabled'     => false,
+            'isHtml5ParserEnabled'    => true,
             'isFontSubsettingEnabled' => false,
-            'debugPng' => true,
-            'debugKeepTemp' => true,
-            'debugCss' => true,
-            'debugLayout' => true,
-            'debugLayoutLines' => false,
-            'debugLayoutBlocks' => false,
-            'debugLayoutInline' => false,
-            'debugLayoutPaddingBox' => false
+            'debugPng'                => true,
+            'debugKeepTemp'           => true,
+            'debugCss'                => true,
+            'debugLayout'             => true,
+            'debugLayoutLines'        => false,
+            'debugLayoutBlocks'       => false,
+            'debugLayoutInline'       => false,
+            'debugLayoutPaddingBox'   => false,
         ]);
         $this->assertEquals('test1', $option->getTempDir());
         $this->assertEquals('test2', $option->getFontDir());
         $this->assertEquals('test3', $option->getFontCache());
-        $this->assertEquals(['test4','test4a'], $option->getChroot());
+        $this->assertEquals(['test4', 'test4a'], $option->getChroot());
         $this->assertEquals('test5', $option->getLogOutputFile());
         $this->assertEquals('test6', $option->getDefaultMediaType());
         $this->assertEquals('test7', $option->getDefaultPaperSize());
