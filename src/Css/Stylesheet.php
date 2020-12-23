@@ -1612,7 +1612,7 @@ class Stylesheet
             $prop = trim($prop);
             */
             if ($DEBUGCSS) {
-                print '(';
+                echo '(';
             }
 
             $important = false;
@@ -1629,7 +1629,7 @@ class Stylesheet
 
             if ($prop === '') {
                 if ($DEBUGCSS) {
-                    print 'empty)';
+                    echo 'empty)';
                 }
                 continue;
             }
@@ -1637,7 +1637,7 @@ class Stylesheet
             $i = mb_strpos($prop, ':');
             if ($i === false) {
                 if ($DEBUGCSS) {
-                    print 'novalue'.$prop.')';
+                    echo 'novalue'.$prop.')';
                 }
                 continue;
             }
@@ -1645,7 +1645,7 @@ class Stylesheet
             $prop_name = rtrim(mb_strtolower(mb_substr($prop, 0, $i)));
             $value = ltrim(mb_substr($prop, $i + 1));
             if ($DEBUGCSS) {
-                print $prop_name.':='.$value.($important ? '!IMPORTANT' : '').')';
+                echo $prop_name.':='.$value.($important ? '!IMPORTANT' : '').')';
             }
             //New style, anyway empty
             //if ($important || !$style->important_get($prop_name) ) {
@@ -1660,7 +1660,7 @@ class Stylesheet
             $style->$prop_name = $value;
         }
         if ($DEBUGCSS) {
-            print '_parse_properties]';
+            echo '_parse_properties]';
         }
 
         return $style;
@@ -1684,7 +1684,7 @@ class Stylesheet
 
         $sections = explode('}', $str);
         if ($DEBUGCSS) {
-            print '[_parse_sections';
+            echo '[_parse_sections';
         }
         foreach ($sections as $sect) {
             $i = mb_strpos($sect, '{');
@@ -1695,7 +1695,7 @@ class Stylesheet
             //$selectors = explode(",", mb_substr($sect, 0, $i));
             $selectors = preg_split("/,(?![^\(]*\))/", mb_substr($sect, 0, $i), 0, PREG_SPLIT_NO_EMPTY);
             if ($DEBUGCSS) {
-                print '[section';
+                echo '[section';
             }
 
             $style = $this->_parse_properties(trim(mb_substr($sect, $i + 1)));
@@ -1706,12 +1706,12 @@ class Stylesheet
 
                 if ($selector == '') {
                     if ($DEBUGCSS) {
-                        print '#empty#';
+                        echo '#empty#';
                     }
                     continue;
                 }
                 if ($DEBUGCSS) {
-                    print '#'.$selector.'#';
+                    echo '#'.$selector.'#';
                 }
                 //if ($DEBUGCSS) { if (strpos($selector,'p') !== false) print '!!!p!!!#'; }
 
