@@ -2,14 +2,13 @@
 
 namespace Dompdf\Tests\Css;
 
-use Dompdf\Dompdf;
 use Dompdf\Css\Style;
 use Dompdf\Css\Stylesheet;
+use Dompdf\Dompdf;
 use Dompdf\Tests\TestCase;
 
 class StyleTest extends TestCase
 {
-
     public function testLengthInPt()
     {
         $dompdf = new Dompdf();
@@ -43,16 +42,16 @@ class StyleTest extends TestCase
         $s = new Style($sheet);
 
         // keyword none
-        $s->background_image = "none";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = 'none';
+        $this->assertEquals('none', $s->background_image);
 
         // no value
-        $s->background_image = "";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = '';
+        $this->assertEquals('none', $s->background_image);
 
         // bare url
-        $s->background_image = "http://example.com/test.png";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = 'http://example.com/test.png';
+        $this->assertEquals('none', $s->background_image);
     }
 
     /**
@@ -61,23 +60,23 @@ class StyleTest extends TestCase
     public function testCssImageNoneParsingWithBaseHref()
     {
         $dompdf = new Dompdf();
-        $dompdf->setProtocol("https://");
-        $dompdf->setBaseHost("example.com");
-        $dompdf->setBasePath("/");
+        $dompdf->setProtocol('https://');
+        $dompdf->setBaseHost('example.com');
+        $dompdf->setBasePath('/');
         $sheet = new Stylesheet($dompdf);
         $s = new Style($sheet);
 
         // keyword none
-        $s->background_image = "none";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = 'none';
+        $this->assertEquals('none', $s->background_image);
 
         // no value
-        $s->background_image = "";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = '';
+        $this->assertEquals('none', $s->background_image);
 
         // bare url
-        $s->background_image = "http://example.com/test.png";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = 'http://example.com/test.png';
+        $this->assertEquals('none', $s->background_image);
     }
 
     /**
@@ -87,21 +86,21 @@ class StyleTest extends TestCase
     {
         $dompdf = new Dompdf();
         $sheet = new Stylesheet($dompdf);
-        $sheet->set_protocol("https://");
-        $sheet->set_host("example.com");
-        $sheet->set_base_path("/");
+        $sheet->set_protocol('https://');
+        $sheet->set_host('example.com');
+        $sheet->set_base_path('/');
         $s = new Style($sheet);
 
         // keyword none
-        $s->background_image = "none";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = 'none';
+        $this->assertEquals('none', $s->background_image);
 
         // no value
-        $s->background_image = "";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = '';
+        $this->assertEquals('none', $s->background_image);
 
         // bare url
-        $s->background_image = "http://example.com/test.png";
-        $this->assertEquals("none", $s->background_image);
+        $s->background_image = 'http://example.com/test.png';
+        $this->assertEquals('none', $s->background_image);
     }
 }

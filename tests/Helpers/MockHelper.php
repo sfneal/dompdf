@@ -11,6 +11,7 @@ class MockHelper
 {
     /**
      * @param $properties
+     *
      * @return MockInterface | Style
      */
     public static function getStyleMock($properties)
