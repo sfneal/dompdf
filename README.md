@@ -1,6 +1,7 @@
 Dompdf
 ======
 
+[![Packagist PHP support](https://img.shields.io/packagist/php-v/sfneal/dompdf)](https://packagist.org/packages/sfneal/dompdf)
 [![Build Status](https://travis-ci.org/sfneal/dompdf.png?branch=master)](https://travis-ci.org/sfneal/dompdf)
 [![Latest Stable Version](https://poser.pugx.org/sfneal/dompdf/v/stable.png)](https://packagist.org/packages/sfneal/dompdf)
 [![Total Downloads](https://poser.pugx.org/sfneal/dompdf/downloads.png)](https://packagist.org/packages/sfneal/dompdf)
